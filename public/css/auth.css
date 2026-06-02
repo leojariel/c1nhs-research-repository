@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+ --aside-bg-color: #b7e4c783;
+ --text-color: #000000;
+ --sub-title-color: #1b4332;
+ --input-border-color: #1b4332;
+ --btn-accent-color: #038b3b;
+}
+
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ width: 100vw;
+ height: 100vh;
+}
+
+main {
+ width: 100%;
+ height: 100%;
+
+ display: grid;
+ grid-template-columns: 1fr auto 1fr;
+
+ font-family: "Montserrat", sans-serif;
+}
+
+.divider-line {
+ width: 1px;
+ background-color: #b8b8b8;
+}
+
+aside,
+fieldset {
+ padding: 2em;
+}
+
+aside {
+ background: var(--aside-bg-color);
+}
+
+.auth-wrapper,
+.field-wrapper {
+ width: 100%;
+ max-width: 600px;
+ height: 100%;
+ margin: 0 auto;
+}
+
+fieldset {
+ border: none;
+ outline: none;
+}
+
+.auth-wrapper {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+
+.auth-wrapper div:not(.footer) {
+ flex-grow: 1;
+}
+
+.c1nhs-logo-container img {
+ width: 16.875vw;
+}
+
+.footer small {
+ display: block;
+}
+
+.header-text {
+ color: var(--text-color);
+}
+.header-text h2 {
+ font-size: clamp(18px, 3vw, 36px);
+ font-weight: 700;
+}
+.header-text abbr {
+ font-size: clamp(24px, 7vw, 84px);
+ font-weight: 800;
+}
+.header-text h1 {
+ font-size: clamp(36px, 8vw, 94px);
+ font-weight: 500;
+ line-height: 0.8em;
+ color: var(--sub-title-color);
+}
