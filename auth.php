@@ -41,12 +41,12 @@
      <p>Activate your C1NHS account</p>
     </div>
 
-    <div class="input-fields">
-     <form action="" method="POST">
+    <form action="" method="POST">
+     <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
        <label for="c1nhs-username">C1NHS Username:</label>
-       <div class="c1nhs-placeholder-box">
+       <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
         <input type="text" id="c1nhs-username" required>
        </div>
@@ -55,6 +55,7 @@
       <div class="grade-lvl-wrapper">
        <label for="grade-lvl">Grade lvl.</label>
        <select id="grade-lvl" required>
+        <option value="">Select</option>
         <optgroup label="SHS">
          <option value="12">12</option>
          <option value="11">11</option>
@@ -80,11 +81,13 @@
 
       <p class="help-message">If you need help, click <a href="#">guide</a></p>
 
-      <button class="activate-acc-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
-      <button class="log-in-nav-btn" type="button">Log In</button>
+      <div class="auth-buttons">
+       <button class="activate-acc-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
+       <button class="log-in-nav-btn" type="button">Log In</button>
+      </div>
 
-     </form>
-    </div>
+     </div>
+    </form>
    </div>
   </fieldset>
  </main>

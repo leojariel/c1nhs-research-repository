@@ -41,6 +41,8 @@ fieldset {
  padding: 2em;
 }
 
+/* ! ASIDE HEADER  */
+
 aside {
  background: var(--aside-bg-color);
 }
@@ -92,4 +94,107 @@ fieldset {
  font-weight: 500;
  line-height: 0.8em;
  color: var(--sub-title-color);
+}
+
+/* ! FIELDSET */
+
+.field-wrapper {
+ max-width: 800px;
+ display: flex;
+ flex-direction: column;
+ /* align-items: center; */
+ gap: 4rem;
+ justify-content: center;
+}
+
+.field-header h2 {
+ font-size: 32px;
+}
+.field-header p {
+ font-size: 28px;
+}
+
+.input-fields label {
+ display: block;
+ font-size: 24px;
+ font-weight: 600;
+}
+
+.input-fields {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.5em;
+}
+.input-fields input,
+.input-fields select {
+ border: 1px solid var(--input-border-color);
+ outline: none;
+}
+.input-fields :is(input:not(#c1nhs-username), select):focus {
+ border-bottom: 1px solid orangered;
+}
+
+.input-fields :is(input, select, button) {
+ padding: 0.5em;
+ font-size: 24px;
+ width: 100%;
+ border-radius: 10px;
+}
+.input-fields p {
+ text-align: center;
+}
+
+.c1nhs-username-wrapper {
+ grid-column: span 2;
+}
+.username-placeholder-box {
+ display: flex;
+ align-items: center;
+ border: 1px solid var(--input-border-color);
+ border-radius: 10px;
+}
+.username-placeholder-box .prefix-username {
+ padding: 0.5em;
+ padding-right: 0;
+ font-size: 24px;
+ font-weight: 600;
+ font-style: italic;
+ color: #5d5d5d;
+}
+.username-placeholder-box input {
+ flex: 1;
+ border: none;
+ outline: none;
+ text-transform: uppercase;
+}
+.username-placeholder-box:focus-within {
+ border-bottom: 1px solid orangered;
+}
+
+.password-wrapper,
+.c-password-wrapper,
+p,
+.auth-buttons {
+ grid-column: span 3;
+}
+
+.auth-buttons {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+.auth-buttons button {
+ font-family: "Montserrat", sans-serif;
+ cursor: pointer;
+ font-weight: 600;
+ border: none;
+ outline: none;
+}
+.auth-buttons .activate-acc-btn {
+ background-color: var(--btn-accent-color);
+ color: white;
+}
+.auth-buttons .log-in-nav-btn {
+ background: none;
+ color: var(--btn-accent-color);
 }
