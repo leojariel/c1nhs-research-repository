@@ -45,6 +45,7 @@ fieldset {
 
 aside {
  background: var(--aside-bg-color);
+ transition: all 0.3s ease;
 }
 
 .auth-wrapper,
@@ -70,8 +71,25 @@ fieldset {
  flex-grow: 1;
 }
 
+.c1nhs-logo-container {
+ perspective: 1000px;
+}
+
 .c1nhs-logo-container img {
  width: 16.875vw;
+ transition: transform 0.3s ease;
+ animation: slideRight 1.5s ease;
+}
+.c1nhs-logo-container.auth-area {
+ display: none;
+ justify-content: center;
+}
+.c1nhs-logo-container.auth-area img {
+ width: 50px;
+}
+
+.c1nhs-logo-container img:hover {
+ transform: rotateY(25deg) rotateX(10deg);
 }
 
 .footer small {
@@ -96,6 +114,17 @@ fieldset {
  color: var(--sub-title-color);
 }
 
+@keyframes slideRight {
+ from {
+  opacity: 0;
+  transform: translateX(-50px);
+ }
+ to {
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
 /* ! FIELDSET */
 
 .field-wrapper {
@@ -103,20 +132,21 @@ fieldset {
  display: flex;
  flex-direction: column;
  /* align-items: center; */
- gap: 4rem;
+ gap: 2.5rem;
  justify-content: center;
 }
 
 .field-header h2 {
- font-size: 32px;
+ font-size: clamp(18px, 4vw, 32px);
 }
 .field-header p {
- font-size: 28px;
+ font-size: clamp(14px, 3vw, 28px);
 }
 
 .input-fields label {
  display: block;
- font-size: 24px;
+ margin-bottom: 0.3em;
+ font-size: clamp(14px, 3vw, 24px);
  font-weight: 600;
 }
 
@@ -136,7 +166,7 @@ fieldset {
 
 .input-fields :is(input, select, button) {
  padding: 0.5em;
- font-size: 24px;
+ font-size: clamp(18px, 3vw, 24px);
  width: 100%;
  border-radius: 10px;
 }
@@ -156,7 +186,7 @@ fieldset {
 .username-placeholder-box .prefix-username {
  padding: 0.5em;
  padding-right: 0;
- font-size: 24px;
+ font-size: clamp(18px, 3vw, 24px);
  font-weight: 600;
  font-style: italic;
  color: #5d5d5d;
@@ -169,6 +199,19 @@ fieldset {
 }
 .username-placeholder-box:focus-within {
  border-bottom: 1px solid orangered;
+}
+
+.show-pass-wrapper {
+ position: relative;
+}
+.show-pass-wrapper :is(.ti-eye, .ti-eye-closed) {
+ position: absolute;
+ right: 3%;
+ top: 50%;
+ transform: translateY(-50%);
+
+ font-size: clamp(18px, 3vw, 28px);
+ cursor: pointer;
 }
 
 .password-wrapper,
@@ -190,11 +233,75 @@ p,
  border: none;
  outline: none;
 }
-.auth-buttons .activate-acc-btn {
+.auth-buttons button:active {
+ transform: scale(0.95);
+}
+.auth-buttons
+ :is(.activate-submit-btn, .login-submit-btn, .retrieve-acc-submit-btn) {
  background-color: var(--btn-accent-color);
  color: white;
 }
-.auth-buttons .log-in-nav-btn {
+.auth-buttons :is(.log-in-nav-btn, .activate-acc-nav-btn) {
  background: none;
  color: var(--btn-accent-color);
+}
+
+.login-wrapper .c1nhs-username-wrapper {
+ grid-column: span 3;
+}
+
+.forgot-pass-wrapper .c1nhs-username-wrapper {
+ grid-column: span 3;
+}
+
+.forgot-btn-pass-wrapper {
+ display: flex;
+ justify-content: flex-end;
+}
+
+.auth-buttons .forgot-pass-btn {
+ display: inline-block;
+ width: fit-content;
+ font-size: 18px;
+ padding: 0;
+ text-align: right;
+ background: none;
+}
+
+.auth-buttons .forgot-pass-btn:hover {
+ text-decoration: underline;
+}
+
+/* ! Media Queries */
+
+@media (width <= 1200px) {
+ main {
+  display: flex;
+  justify-content: center;
+ }
+ .c1nhs-logo-container.auth-area {
+  display: flex;
+ }
+ aside {
+  opacity: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+ }
+ .divider-line {
+  display: none;
+ }
+}
+
+@media (width <= 600px) {
+ fieldset {
+  width: 100%;
+ }
+ .input-fields {
+  display: flex;
+  flex-direction: column;
+ }
 }

@@ -35,7 +35,11 @@
   <div class="divider-line"></div>
 
   <fieldset>
-   <div class="field-wrapper">
+   <!-- Register Wrap -->
+   <div style="display: flex;" class="field-wrapper register-wrapper">
+    <div class="c1nhs-logo-container auth-area">
+     <img src="public/img/c1nhs-logo.webp" width="100" alt="">
+    </div>
     <div class="field-header">
      <h2>Register</h2>
      <p>Activate your C1NHS account</p>
@@ -71,19 +75,102 @@
 
       <div class="password-wrapper">
        <label for="password">Password:</label>
-       <input type="password" id="password" required>
+       <div class="show-pass-wrapper">
+        <input class="pass-input" type="password" id="password" required minlength="8" maxlength="12">
+        <i class="ti toggle-icon ti-eye-closed"></i>
+        <div class="show-pass-buttons"></div>
+       </div>
       </div>
 
       <div class="c-password-wrapper">
        <label for="c-password">Confirm password:</label>
-       <input type="password" id="c-password" required>
+       <div class="show-pass-wrapper">
+        <input class="pass-input" type="password" id="c-password" required minlength="8" maxlength="12">
+        <i class="ti toggle-icon ti-eye-closed"></i>
+       </div>
       </div>
 
       <p class="help-message">If you need help, click <a href="#">guide</a></p>
 
       <div class="auth-buttons">
-       <button class="activate-acc-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
+       <button class="activate-submit-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
        <button class="log-in-nav-btn" type="button">Log In</button>
+      </div>
+
+     </div>
+    </form>
+   </div>
+
+   <!-- log in wrapper -->
+   <div style="display: none;" class="field-wrapper login-wrapper">
+    <div class="c1nhs-logo-container auth-area">
+     <img src="public/img/c1nhs-logo.webp" width="100" alt="">
+    </div>
+    <div class="field-header">
+     <h2>Log In</h2>
+     <p>Input your registered C1NHS account</p>
+    </div>
+
+    <form action="" method="POST">
+     <div class="input-fields">
+
+      <div class="c1nhs-username-wrapper">
+       <label for="c1nhs-username">C1NHS Username:</label>
+       <div class="username-placeholder-box">
+        <div class="prefix-username">C1NHS# -</div>
+        <input type="text" id="c1nhs-username" required>
+       </div>
+      </div>
+
+      <div class="password-wrapper">
+       <label for="password">Password:</label>
+       <div class="show-pass-wrapper">
+        <input class="pass-input" type="password" id="password" required>
+        <i class="ti toggle-icon ti-eye-closed"></i>
+       </div>
+      </div>
+
+      <p class="help-message">If you need help, click <a href="#">guide</a></p>
+
+      <div class="auth-buttons">
+       <div class="forgot-btn-pass-wrapper">
+        <button class="forgot-pass-btn" type="button">Forgot password?</button>
+       </div>
+       <button class="login-submit-btn" type="submit">Log in <i class="ti ti-login-2"></i></button>
+       <button class="activate-acc-nav-btn" type="button">Activate Account</button>
+      </div>
+
+     </div>
+    </form>
+   </div>
+
+   <!-- forgot password -->
+   <div style="display: none;" class="field-wrapper forgot-pass-wrapper">
+    <div class="c1nhs-logo-container auth-area">
+     <img src="public/img/c1nhs-logo.webp" width="100" alt="">
+    </div>
+    <div class="field-header">
+     <h2>Retrieve Account</h2>
+     <p>Remember your C1NHS username</p>
+    </div>
+
+    <form action="" method="POST">
+     <div class="input-fields">
+
+      <div class="c1nhs-username-wrapper">
+       <label for="c1nhs-username">C1NHS Username:</label>
+       <div class="username-placeholder-box">
+        <div class="prefix-username">C1NHS# -</div>
+        <input type="text" id="c1nhs-username" required>
+       </div>
+      </div>
+
+      <p class="help-message">If you need help, click <a href="#">guide</a></p>
+
+      <div class="auth-buttons">
+       <button class="retrieve-acc-submit-btn" type="submit">Retrieve password <i class="ti ti-lock-open-2"></i></button>
+       <button class="log-in-nav-btn" type="button">Log In</button>
+       <button class="activate-acc-nav-btn" type="button">Activate Account</button>
       </div>
 
      </div>
@@ -91,6 +178,8 @@
    </div>
   </fieldset>
  </main>
+
+ <script src="public/js/auth.js"></script>
 </body>
 
 </html>
