@@ -94,6 +94,9 @@ fieldset {
 
 .footer small {
  display: block;
+ opacity: 0;
+ animation: fadeIn 1.5s ease forwards;
+ animation-delay: 2s;
 }
 
 .header-text {
@@ -102,16 +105,29 @@ fieldset {
 .header-text h2 {
  font-size: clamp(18px, 3vw, 36px);
  font-weight: 700;
+
+ opacity: 0;
+ animation: slideDown 1.5s ease forwards;
+ animation-delay: 0.5s;
 }
 .header-text abbr {
  font-size: clamp(24px, 7vw, 84px);
  font-weight: 800;
+ display: block;
+
+ opacity: 0;
+ animation: slideDown1 1.5s ease forwards;
+ animation-delay: 1s;
 }
 .header-text h1 {
  font-size: clamp(36px, 8vw, 94px);
  font-weight: 500;
  line-height: 0.8em;
  color: var(--sub-title-color);
+
+ opacity: 0;
+ animation: slideDown1 1.5s ease forwards;
+ animation-delay: 1.5s;
 }
 
 @keyframes slideRight {
@@ -122,6 +138,34 @@ fieldset {
  to {
   opacity: 1;
   transform: translateX(0);
+ }
+}
+
+@keyframes slideDown1 {
+ from {
+  opacity: 0;
+  transform: translateY(-20px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+@keyframes slideDown {
+ from {
+  opacity: 0;
+  transform: translateY(-50px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+@keyframes fadeIn {
+ to {
+  opacity: 1;
  }
 }
 
@@ -234,7 +278,7 @@ p,
  outline: none;
 }
 .auth-buttons button:active {
- transform: scale(0.95);
+ transform: scale(0.97);
 }
 .auth-buttons
  :is(.activate-submit-btn, .login-submit-btn, .retrieve-acc-submit-btn) {
