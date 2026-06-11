@@ -49,14 +49,14 @@
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
-       <label for="c1nhs-username">C1NHS Username:</label>
+       <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required>
+        <input type="text" id="c1nhs-username" required maxlength="12">
        </div>
       </div>
 
-      <div class="grade-lvl-wrapper">
+      <!-- <div class="grade-lvl-wrapper">
        <label for="grade-lvl">Grade lvl.</label>
        <select id="grade-lvl" required>
         <option value="">Select</option>
@@ -71,7 +71,7 @@
          <option value="7">7</option>
         </optgroup>
        </select>
-      </div>
+      </div> -->
 
       <div class="password-wrapper">
        <label for="password">Password:</label>
@@ -115,10 +115,10 @@
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
-       <label for="c1nhs-username">C1NHS Username:</label>
+       <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required>
+        <input type="text" id="c1nhs-username" required maxlength="12">
        </div>
       </div>
 
@@ -158,10 +158,10 @@
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
-       <label for="c1nhs-username">C1NHS Username:</label>
+       <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required>
+        <input type="text" id="c1nhs-username" required maxlength="12">
        </div>
       </div>
 

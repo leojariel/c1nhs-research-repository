@@ -48,17 +48,20 @@ aside {
  transition: all 0.3s ease;
 }
 
-.auth-wrapper,
-.field-wrapper {
- width: 100%;
- max-width: 600px;
- height: 100%;
- margin: 0 auto;
-}
-
 fieldset {
  border: none;
  outline: none;
+ max-width: 800px;
+ width: 100%;
+ margin: 0 auto;
+}
+
+.auth-wrapper,
+.field-wrapper {
+ height: 100%;
+ max-width: 800px;
+ width: 100%;
+ margin: 0 auto;
 }
 
 .auth-wrapper {
@@ -219,7 +222,7 @@ fieldset {
 }
 
 .c1nhs-username-wrapper {
- grid-column: span 2;
+ grid-column: span 3;
 }
 .username-placeholder-box {
  display: flex;
