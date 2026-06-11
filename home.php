@@ -13,39 +13,29 @@
 
 <body>
 
- <header>
-  <div class="header-inner-box">
-   <div class="logo-wrapper">
-    <img src="public/img/c1nhs-logo.webp" alt="cagsiay 1 national high school logo" width="61">
-    <div class="logo-text">
-     <h3 class="header">Cagsiay 1 National High School</h3>
-     <h4 class="subheader">Research Repository</h4>
+ <!-- header -->
+ <?php include 'includes/header.php' ?>
+
+ <main>
+  <!-- hero section -->
+  <div class="hero-wrapper">
+   <div class="hero">
+    <div class="hero-content">
+     <h3>Welcome to</h3>
+     <abbr title="Cagsiay I National High School">C.1.N.H.S</abbr>
+     <h1>research repository</h1>
+     <p>This repository brings together the best Senior High School research projects all in one place, making it easy to find reliable references, spark new ideas, and see how much research actually matters. Built to help you navigate your own academic journey, it's a space to explore past work, get inspired, and see what's possible.</p>
+     <a href="research-area.php">Explore now <i class="ti ti-external-link"></i></a>
+     <div class="bullets-container">
+      <button class="bullet active"></button>
+      <button class="bullet"></button>
+      <button class="bullet"></button>
+      <button class="bullet"></button>
+     </div>
     </div>
-   </div>
-
-   <nav>
-    <ul class="header-nav-items">
-     <li class="nav-item">
-      <a href="home.php"><i class="ti ti-home"></i> Home</a>
-     </li>
-     <li class="nav-item">
-      <a href="research-area.php"><i class="ti ti-article"></i> Research Area</a>
-     </li>
-     <li class="nav-item">
-      <a href="contact.php"><i class="ti ti-phone"></i> Contact</a>
-     </li>
-    </ul>
-   </nav>
-
-   <div class="accessibility-wrapper">
-    <div class="profile-wrapper">
-     <i class="ti ti-user-circle"></i>
-    </div>
-
    </div>
   </div>
- </header>
-
+ </main>
 </body>
 
 </html>
