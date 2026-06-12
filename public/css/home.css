@@ -16,6 +16,10 @@ body {
  color: hsl(88, 100%, 86%);
  background: #2d6a4f;
 }
+.sub-navbar .nav-item:nth-child(1) > a {
+ color: #038b3b;
+ background: none;
+}
 
 .hero-wrapper {
  background: repeating-linear-gradient(45deg, #70e000, #affc41 50%);
@@ -56,28 +60,28 @@ body {
  line-height: 0.7em;
 }
 .hero-content h3 {
- font-size: 36px;
+ font-size: clamp(24px, 3vw, 36px);
  font-weight: 700;
  line-height: 2.5em;
 }
 .hero-content abbr {
- font-size: 94px;
+ font-size: clamp(56px, 7vw, 94px);
  font-weight: 700;
  text-decoration: none;
 }
 .hero-content h1 {
- font-size: 128px;
+ font-size: clamp(65px, 10vw, 128px);
  font-weight: 400;
  font-style: italic;
  color: #00ff69;
 }
 .hero-content p {
  margin-top: 35px;
- font-size: 24px;
+ font-size: clamp(14px, 3vw, 24px);
 }
 .hero-content a {
  display: inline-block;
- font-size: 24px;
+ font-size: clamp(18px, 3vw, 24px);
  font-weight: 600;
  color: #1b4332;
  background: #00ff69;
