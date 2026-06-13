@@ -62,12 +62,19 @@
  }
 
  header {
-  background: #e7ffc7;
-  position: absolute;
+  background: rgba(231, 255, 199, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
+  transition: transform 0.5s ease;
+ }
+
+ header.hidden {
+  transform: translateY(-100%);
  }
 
  .header-inner-box {
@@ -137,7 +144,7 @@
   display: none;
  }
 
- @media (width <=992px) {
+ @media (width <=1025px) {
 
   .header-nav-items,
   .profile-wrapper {
