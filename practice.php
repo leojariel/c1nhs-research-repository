@@ -7,73 +7,92 @@
  <title>Practice</title>
 
  <style>
-  .parallax-container {
-   position: relative;
-   width: 100%;
-   height: 50vh;
-   overflow: hidden;
-   /* Hides the image if it scales or moves past the boundaries */
+  .parent-container {
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   margin: 100px 0;
+   /* Giving it some space to allow for scrolling */
   }
 
-  .parallax-img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-position: center;
-   background-size: cover;
-   /* This matches your snippet's starting state */
-   transform: translate3d(0px, 0px, 0px);
-   will-change: transform;
-  }
-
-  .content-overlay {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+  /* 1. Initial Hidden State */
+  .box {
+   width: 150px;
+   height: 150px;
+   background-color: #3498db;
    color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   /* Start shifted down and invisible */
+   opacity: 0;
+   transform: translateY(50px);
+
+   /* Smooth transition configuration */
+   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
   }
 
-  /* The section that slides over the top */
-  .below-section {
-   position: relative;
-   z-index: 2;
-   /* Sits on top of the parallax container */
-   background: #ffffff;
-   min-height: 100vh;
-   padding: 50px;
+  /* 2. Staggered Delays */
+  .box:nth-child(1) {
+   transition-delay: 0s;
+  }
+
+  .box:nth-child(2) {
+   transition-delay: 0.2s;
+  }
+
+  .box:nth-child(3) {
+   transition-delay: 0.4s;
+  }
+
+  .box:nth-child(4) {
+   transition-delay: 0.6s;
+  }
+
+  /* 3. Triggered State */
+  /* When the parent gets '.visible', animate all internal boxes */
+  .parent-container.visible .box {
+   opacity: 1;
+   transform: translateY(0);
   }
  </style>
 </head>
 
 <body>
- <div class="parallax-container">
-  <div class="parallax-img" style="background-image: url('https://picsum.photos/1920/1080');"></div>
-  <div class="content-overlay">
-   <h1>Centered Header Text</h1>
-  </div>
- </div>
-
- <div class="below-section">
-  <h2>This section overlaps the image</h2>
-  <p>Scroll down to see the magic happen.</p>
+ <div style="height: 100vh;"></div>
+ <div class="parent-container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
  </div>
 </body>
 
 <script>
- window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  const parallaxImg = document.querySelector('.parallax-img');
+ // Target the parent container
+ const parentContainer = document.querySelector('.parent-container');
 
-  // 0.5 means the image moves at half the speed of the scroll.
-  // Adjust this multiplier to change how fast/slow it stays centered.
-  const yPos = scrolled * 0.5;
+ const options = {
+  root: null, // Uses the browser viewport
+  rootMargin: '0px',
+  threshold: 0.3 // Triggers when 30% of the parent is visible
+ };
 
-  // Dynamically update the translate3d just like the element you found!
-  parallaxImg.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
- });
+ const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+   if (entry.isIntersecting) {
+    // Add the class to trigger the CSS transitions
+    entry.target.classList.add('visible');
+
+    // Stop observing so the animation only happens once
+    observer.unobserve(entry.target);
+   }
+  });
+ }, options);
+
+ // Start watching the parent
+ observer.observe(parentContainer);
 </script>
 
 </html>

@@ -84,7 +84,7 @@ body {
 }
 
 .hero {
- background-image: url("https://images.pexels.com/photos/30731144/pexels-photo-30731144.jpeg");
+ background-image: url(../img/gif/c1nhs-bg-gif.gif);
  background-size: cover;
  background-position: center;
  background-repeat: no-repeat;
@@ -154,7 +154,7 @@ body {
  gap: 10px;
 }
 .bullets-container .bullet {
- width: 60px;
+ width: 30px;
  height: 12px;
  background: rgba(255, 255, 255, 0.4);
  border-radius: 10px;
@@ -165,8 +165,8 @@ body {
 
 @media (width <= 600px) {
  .bullets-container .bullet {
-  width: 40px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
  }
 }
 
@@ -206,11 +206,6 @@ body {
  display: flex;
  flex-direction: column;
  gap: 25px;
-
- transition: transform 0.5s ease;
-}
-.why-wrapper .card:hover {
- transform: translateY(-10px) scale(1.005);
 }
 .why-wrapper .card > img {
  width: 100%;
@@ -228,6 +223,29 @@ body {
 .why-wrapper .card p {
  font-size: 18px;
 }
+.why-wrapper .box {
+ opacity: 0;
+ transform: translateY(-50px);
+ transition:
+  transform 0.6s ease-out,
+  opacity 0.6s ease-out;
+}
+.why-wrapper .box.title-wrapper:nth-child(1) {
+ transition-delay: 0s;
+}
+.why-wrapper .card:nth-child(1) {
+ transition-delay: 0.2s;
+}
+.why-wrapper .card:nth-child(2) {
+ transition-delay: 0.4s;
+}
+.why-wrapper .card:nth-child(3) {
+ transition-delay: 0.6s;
+}
+.why-section[class~="visible"] .box {
+ opacity: 1;
+ transform: translateY(0);
+}
 
 /* ! pinnacle section */
 .pinnacle-section {
@@ -242,10 +260,48 @@ body {
 }
 .pinnacle-section .title > h2 {
  font-family: "Nothing You Could Do", cursive;
- font-size: 64px;
+ font-size: clamp(32px, 5vw, 64px);
  font-weight: 400;
+ text-align: center;
  color: #038b3b;
 }
+.pinnacle-section .box {
+ opacity: 0;
+ transition:
+  transform 0.6s ease-out,
+  opacity 0.6s ease-out;
+}
+
+.pinnacle-section .title {
+ transform: translateY(-50px);
+ transition-delay: 0s;
+}
+.pinnacle-section[class~="visible"] .title {
+ transform: translateY(0);
+ opacity: 1;
+}
+.bisr-wrapper[class~="visible"] .box {
+ transform: translate(0);
+ opacity: 1;
+}
+
+.bisr-wrapper h2:nth-of-type(1) {
+ transform: translateX(-50px);
+ transition-delay: 0.5s;
+}
+.bisr-wrapper .bisr-images {
+ transform: translateY(-20px);
+ transition-delay: 1s;
+}
+.bisr-wrapper h2:nth-of-type(2) {
+ transform: translateX(50px);
+ transition-delay: 1.5s;
+}
+.bisr-wrapper p.box {
+ transform: translateX(50px);
+ transition-delay: 1.7s;
+}
+/* .bisr-wrapper  */
 
 .bisr-wrapper {
  max-width: 1100px;
@@ -358,13 +414,13 @@ body {
  position: relative;
 }
 .mission_goal-section h2 {
- font-size: 48px;
+ font-size: clamp(36px, 5vw, 48px);
  font-weight: 600;
  color: #1b4332;
  line-height: 1.8em;
 }
 .mission_goal-section p {
- font-size: 24px;
+ font-size: clamp(18px, 3vw, 24px);
  margin-left: 1.5em;
  margin-bottom: 1.5em;
  color: #1b4332;
@@ -428,7 +484,7 @@ body {
  max-width: 980px;
  width: 90%;
  text-align: left;
- font-size: 48px;
+ font-size: clamp(24px, 3vw, 48px);
  font-weight: 600;
  font-style: italic;
  color: #00ff69;
@@ -446,4 +502,22 @@ body {
  background: linear-gradient(to right, #00ff69, #038b3b);
  opacity: 20%;
  z-index: 1;
+}
+
+/* ! footer */
+
+footer {
+ background: #1b4332;
+}
+
+.footer-wrapper {
+ width: min(100%, 1400px);
+ margin: 0 auto;
+ text-align: center;
+ padding: 1.5em;
+}
+
+.footer-wrapper h3 {
+ color: #b7e4c7;
+ font-weight: 400;
 }
