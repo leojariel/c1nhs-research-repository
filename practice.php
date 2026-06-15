@@ -7,92 +7,156 @@
  <title>Practice</title>
 
  <style>
-  .parent-container {
-   display: flex;
-   gap: 20px;
-   justify-content: center;
-   margin: 100px 0;
-   /* Giving it some space to allow for scrolling */
+  /* Core Accordion Styling */
+  .accordion {
+   width: 100%;
+   max-width: 600px;
+   margin: 0 auto;
+   font-family: Arial, sans-serif;
   }
 
-  /* 1. Initial Hidden State */
-  .box {
-   width: 150px;
-   height: 150px;
-   background-color: #3498db;
-   color: white;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   /* Start shifted down and invisible */
-   opacity: 0;
-   transform: translateY(50px);
-
-   /* Smooth transition configuration */
-   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  .accordion-item {
+   border: 1px solid #ddd;
+   border-bottom: none;
   }
 
-  /* 2. Staggered Delays */
-  .box:nth-child(1) {
-   transition-delay: 0s;
+  .accordion-item:last-child {
+   border-bottom: 1px solid #ddd;
   }
 
-  .box:nth-child(2) {
-   transition-delay: 0.2s;
+  /* Header Buttons */
+  .accordion-header {
+   width: 100%;
+   background-color: #f7f7f7;
+   color: #333;
+   text-align: left;
+   padding: 15px;
+   font-size: 16px;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   position: relative;
   }
 
-  .box:nth-child(3) {
-   transition-delay: 0.4s;
+  .accordion-header:hover {
+   background-color: #e9e9e9;
   }
 
-  .box:nth-child(4) {
-   transition-delay: 0.6s;
+  /* Indicator Arrow */
+  .accordion-header::after {
+   content: '\276F';
+   /* Right angle quote */
+   position: absolute;
+   right: 15px;
+   top: 50%;
+   transform: translateY(-50%);
+   transition: transform 0.3s ease;
   }
 
-  /* 3. Triggered State */
-  /* When the parent gets '.visible', animate all internal boxes */
-  .parent-container.visible .box {
-   opacity: 1;
-   transform: translateY(0);
+  /* Active State Styles */
+  .accordion-item.active>.accordion-header {
+   background-color: #e0f2fe;
+   font-weight: bold;
+  }
+
+  .accordion-item.active>.accordion-header::after {
+   transform: translateY(-50%) rotate(90deg);
+   /* Rotate arrow down */
+  }
+
+  /* Content Panel (Hidden by default) */
+  .accordion-content {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.3s ease-out;
+   background-color: #fff;
+  }
+
+  /* Padding inside the content, wrapper to prevent glitchy jumps */
+  .accordion-content p,
+  .accordion-content .accordion {
+   padding: 15px;
+  }
+
+  /* Indentation for Nested Accordions */
+  .accordion-content .accordion {
+   padding: 10px 0 0 15px;
+   /* Indent nested layers */
   }
  </style>
 </head>
 
 <body>
- <div style="height: 100vh;"></div>
- <div class="parent-container">
-  <div class="box">Box 1</div>
-  <div class="box">Box 2</div>
-  <div class="box">Box 3</div>
-  <div class="box">Box 4</div>
+ <div class="accordion">
+
+  <div class="accordion-item">
+   <button class="accordion-header">Front-End Development</button>
+   <div class="accordion-content">
+
+    <div class="accordion">
+     <div class="accordion-item">
+      <button class="accordion-header">HTML & CSS</button>
+      <div class="accordion-content">
+       <p>Semantic HTML, Flexbox, Grid, and modern CSS layout techniques.</p>
+      </div>
+     </div>
+     <div class="accordion-item">
+      <button class="accordion-header">JavaScript</button>
+      <div class="accordion-content">
+       <p>DOM manipulation, ES6+ features, and asynchronous programming.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="accordion-item">
+   <button class="accordion-header">Back-End Development</button>
+   <div class="accordion-content">
+    <p>Server-side programming, databases, APIs, and cloud infrastructure.</p>
+   </div>
+  </div>
+
  </div>
 </body>
 
 <script>
- // Target the parent container
- const parentContainer = document.querySelector('.parent-container');
+ document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', function() {
+   const currentItem = this.parentElement;
+   const content = this.nextElementSibling;
 
- const options = {
-  root: null, // Uses the browser viewport
-  rootMargin: '0px',
-  threshold: 0.3 // Triggers when 30% of the parent is visible
- };
+   // Toggle active class on the clicked item
+   currentItem.classList.toggle('active');
 
- const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-   if (entry.isIntersecting) {
-    // Add the class to trigger the CSS transitions
-    entry.target.classList.add('visible');
+   if (currentItem.classList.contains('active')) {
+    // Open current item
+    content.style.maxHeight = content.scrollHeight + "px";
 
-    // Stop observing so the animation only happens once
-    observer.unobserve(entry.target);
+    // Update parent accordion heights if nested
+    updateParentHeight(this, content.scrollHeight);
+   } else {
+    // Close current item
+    updateParentHeight(this, -content.scrollHeight);
+    content.style.maxHeight = null;
    }
   });
- }, options);
+ });
 
- // Start watching the parent
- observer.observe(parentContainer);
+ // Helper function to dynamically adjust parent container heights
+ function updateParentHeight(element, heightDifference) {
+  let parentContent = element.closest('.accordion-content');
+
+  // Climb up the DOM tree and add/subtract height to all ancestor containers
+  while (parentContent) {
+   const currentHeight = parseInt(parentContent.style.maxHeight) || 0;
+   parentContent.style.maxHeight = (currentHeight + heightDifference) + "px";
+
+   // Move up to the next parent accordion layer
+   parentContent = parentContent.parentElement.closest('.accordion-content');
+  }
+ }
 </script>
 
 </html>
