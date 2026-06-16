@@ -32,7 +32,17 @@ function updateParentHeight(element, heightDifference) {
 
 // ! view research preview
 const viewBtn = document.querySelectorAll(".view-btn");
+const researchPreviewModal = document.querySelector(".research-modal-preview");
+const closeButton = document.querySelector(".close-button");
 
 viewBtn.forEach((btn) => {
- btn.addEventListener("click", () => {});
+ btn.addEventListener("click", () => {
+  if (researchPreviewModal.classList.contains("hidden")) {
+   researchPreviewModal.classList.remove("hidden");
+  }
+ });
+});
+
+closeButton.querySelector("button").addEventListener("click", () => {
+ researchPreviewModal.classList.add("hidden");
 });

@@ -126,18 +126,9 @@
   </section>
 
   <!-- tagline section -->
-  <section class="tagline-section">
-   <div class="tagline-wrapper">
-    <img src="public/img/c1nhs-bg.jpg" alt="">
-    <h2>“Sama-samang Cagsiayin, <span class="h-color">Disiplina at Edukasyon ang Mithiin!<span>“</h2>
-   </div>
-  </section>
+  <?php include './includes/tagline.php' ?>
 
-  <footer>
-   <div class="footer-wrapper">
-    <h3>&copy; C1NHS 2026 | All Rights Reserved</h3>
-   </div>
-  </footer>
+  <?php include './includes/footer.php' ?>
 
  </main>
 
