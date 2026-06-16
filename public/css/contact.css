@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nothing+You+Could+Do&display=swap");
+
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ font-family: "Montserrat", sans-serif;
+ /* background-color: #121212; */
+}
+
+header {
+ position: sticky !important;
+}
+section {
+ margin-bottom: 3.5em;
+ padding: 2em;
+}
+section.c1nhs-rr-bg-section {
+ padding: 0;
+}
+
+.header-nav-items .nav-item:nth-child(3) > a {
+ color: hsl(88, 100%, 86%);
+ background: #2d6a4f;
+}
+.sub-navbar .nav-item:nth-child(3) > a {
+ color: #038b3b;
+ background: none;
+}
+@media (width <=1025px) {
+ .sub-navbar {
+  width: 100%;
+  background: rgba(231, 255, 199, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: absolute;
+ }
+}
+.contacts-header {
+ width: min(100%, 1400px);
+ margin: 0 auto;
+
+ text-align: center;
+ /* padding: 2em; */
+ display: flex;
+ flex-direction: column;
+ gap: 3.5em;
+}
+.contacts-header .subheader {
+ color: #038b3b;
+}
+.contacts-header .subheader,
+.contacts-header p {
+ font-size: clamp(18px, 2vw, 24px);
+}
+.contacts-header p {
+ max-width: 1100px;
+ margin: 0 auto;
+}
+.contacts-header h1 {
+ font-size: clamp(32px, 5vw, 64px);
+ font-weight: 600;
+ font-style: italic;
+}
+
+/* ! school head section */
+.school-head-wrapper {
+ /* background-color: red; */
+ width: min(100%, 1400px);
+ margin: 0 auto;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+ position: relative;
+}
+.school-head-wrapper .img-wrapper > img {
+ /* background: red; */
+ max-width: 834px;
+ width: 100%;
+ border-radius: 0 0 25% 25%;
+}
+.school-head-wrapper .school-head-header {
+ display: flex;
+ justify-content: space-between;
+ gap: 20px;
+ width: 100%;
+
+ font-size: 74px;
+ color: #038b3b;
+ position: absolute;
+ z-index: -1;
+ top: 30%;
+ /* padding-right: 1em; */
+}
+.school-head-wrapper .school-head-name {
+ font-family: "Merriweather", sans-serif;
+ font-size: 48px;
+ font-weight: 500;
+ margin-top: 0.5em;
+ background: #432818;
+ color: white;
+ padding: 0.2em 0.3em;
+ border-left: 10px solid #ffb20f;
+ border-top: 10px solid #ffe169;
+ border-right: 10px solid #c36f09;
+ border-bottom: 10px solid #ff8800;
+ border-radius: 15px;
+}
