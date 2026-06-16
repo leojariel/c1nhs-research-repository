@@ -113,3 +113,44 @@ section.c1nhs-rr-bg-section {
  border-bottom: 10px solid #ff8800;
  border-radius: 15px;
 }
+
+.location-wrapper {
+ width: min(100%, 1400px);
+ margin: 0 auto;
+}
+.location-wrapper .map-wrapper {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 25px;
+}
+.location-wrapper .map-view-location {
+ display: block;
+ width: 100%;
+ border-radius: 10px;
+}
+.location-wrapper h2 {
+ font-size: 48px;
+ font-style: italic;
+ color: #1b4332;
+}
+.address-wrapper {
+ margin-top: 1em;
+}
+.address-wrapper .details {
+ display: flex;
+ flex-direction: column;
+ margin: 1em 0;
+}
+.address-wrapper .details :is(label, p, a) {
+ text-decoration: none;
+ color: black;
+ font-size: 22px;
+}
+.address-wrapper .details label {
+ font-weight: 500;
+}
+.address-wrapper .details :is(p, a) {
+ font-weight: 600;
+ font-size: 28px;
+ text-indent: 1em;
+}
