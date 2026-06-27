@@ -47,17 +47,17 @@
     </div>
     <div class="cards-wrapper">
      <div class="box card">
-      <img src="public/img/card-image-1.webp" alt="" width="300">
+      <img src="public/img/bisr-2022-2023/card-image-1.webp" alt="" width="300">
       <h3>TRUSTED REFERENCES!</h3>
       <p>Excellence relies on solid foundations. Instead of getting lost in random internet searches, this platform serves as a benchmark for academic quality, providing direct access to verified references and localized studies conducted right here in our school community.</p>
      </div>
      <div class="box card">
-      <img src="public/img/card-image-2.webp" alt="" width="300">
+      <img src="public/img/bisr-2022-2023/card-image-2.webp" alt="" width="300">
       <h3>FIND YOUR INSPIRATION!</h3>
       <p>Stuck on choosing a topic? This repository showcases the incredible ingenuity of Cagsiay 1 National High School students. Browsing past Senior High School projects lets you see what’s already been achieved, helping you uncover fresh angles, unique local problems to solve, and ideas you might never have considered.</p>
      </div>
      <div class="box card">
-      <img src="public/img/card-image-3.webp" alt="" width="300">
+      <img src="public/img/bisr-2022-2023/card-image-3.webp" alt="" width="300">
       <h3>RESEARCH WITH REAL IMPACT!</h3>
       <p>At Cagsiay 1 National High School, research isn't just a graduation requirement—it's where we learn to solve real-world challenges. Seeing the impact of past student projects proves how powerful Cagsiayin ideas truly are and reminds us how essential our voices are in driving change.</p>
      </div>

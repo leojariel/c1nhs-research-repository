@@ -6,10 +6,15 @@
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ scrollbar-width: thin;
 }
 
 body {
  font-family: "Montserrat", sans-serif;
+ font-family: "Montserrat", sans-serif;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
 }
 
 .header-nav-items .nav-item:nth-child(1) > a {

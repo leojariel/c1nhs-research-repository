@@ -22,13 +22,16 @@
    </ul>
   </nav>
 
-  <div class="accessibility-wrapper">
+  <!-- <div class="accessibility-wrapper">
    <div class="profile-wrapper">
     <i class="ti ti-user-circle"></i>
    </div>
    <div class="burger-button">
     <i class="ti ti-menu-2"></i>
    </div>
+  </div> -->
+  <div class="burger-button">
+   <i class="ti ti-menu-2"></i>
   </div>
  </div>
 

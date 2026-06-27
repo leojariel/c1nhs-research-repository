@@ -27,11 +27,14 @@
   </div>
  </section>
 
- <section class="c1nhs-rr-bg-section">
-  <div class="c1nhs-rr-bg-wrapper">
-   <img src="public/img/c1nhs-rr-bg.webp" alt="">
+ <!-- slider image -->
+ <!-- <section>
+  <div class="slider" style="--slide: 10;">
+   <div class="slider-track">
+    <div class="slide"><img src="" alt=""></div>
+   </div>
   </div>
- </section>
+ </section> -->
 
  <section>
   <div class="filter-wrapper">
@@ -304,6 +307,12 @@
    </div>
   </div>
  </div>
+
+ <section class="c1nhs-rr-bg-section">
+  <div class="c1nhs-rr-bg-wrapper">
+   <img src="public/img/c1nhs-rr-bg.webp" alt="">
+  </div>
+ </section>
 
  <?php include './includes/tagline.php' ?>
 

@@ -29,10 +29,7 @@ window.addEventListener("scroll", () => {
   return;
  }
 
- if (
-  currentScrollY > lastScrollY &&
-  currentScrollY > window.innerHeight - 100
- ) {
+ if (currentScrollY > lastScrollY && currentScrollY > 100) {
   header.classList.add("hidden");
  } else if (currentScrollY < lastScrollY) {
   header.classList.remove("hidden");

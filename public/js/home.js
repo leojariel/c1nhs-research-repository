@@ -35,11 +35,11 @@ function createBullets() {
  });
 }
 
-function updateSlider() {
- heroElement.style.backgroundImage = `url('${images[currentIndex]}')`;
+function updateSLider() {
+ heroElement.style.backgroundImage = `url(${images[currentIndex]})`;
 
- const bullets = document.querySelectorAll(".bullet");
- bullets.forEach((bullet, index) => {
+ const bullet = document.querySelectorAll(".bullet");
+ bullet.forEach((bullet, index) => {
   if (index === currentIndex) {
    bullet.classList.add("active");
   } else {
@@ -51,19 +51,19 @@ function updateSlider() {
 function startAutoSlide() {
  slideTimer = setInterval(() => {
   currentIndex = (currentIndex + 1) % images.length;
-  updateSlider();
+  updateSLider();
  }, SLIDE_DURATION);
 }
 
 function goToSlide(index) {
  clearInterval(slideTimer);
  currentIndex = index;
- updateSlider();
+ updateSLider();
  startAutoSlide();
 }
 
 createBullets();
-updateSlider();
+updateSLider();
 startAutoSlide();
 
 // ! scroll to animate

@@ -24,20 +24,21 @@
 
    <h1>Contact</h1>
 
-   <p>Have a question about the repository, need help finding a specific study, or just want to share some feedback? We’re here to help. Drop us a message below or use our contact details to get in touch, and we’ll do our best to point you in the right direction.</p>
+   <p>Have a question about the repository, need help finding a specific study, or just want to share some feedback? We're here to help. Drop us a message below or use our contact details to get in touch, and we'll do our best to point you in the right direction.</p>
   </div>
  </section>
 
- <section>
+ <section class="section-to-animate">
   <div class="school-head-wrapper">
    <div class="school-head-header">
-    <h2>SCHOOL</h2>
-    <h2>HEAD</h2>
+    <h2 class="ani-box">SCHOOL</h2>
+    <h2 class="ani-box">HEAD</h2>
    </div>
    <div class="img-wrapper">
-    <img src="public/img/wilmor-impreso.webp" alt="" width="934">
+    <img class="ani-box" src="public/img/wilmor-impreso.webp" alt="" width="934">
    </div>
-   <h2 class="school-head-name">Wilmor E. Impreso</h2>
+   <h2 class="ani-box school-head-name">Wilmor E. Impreso</h2>
+   <h2 class="ani-box school-head-resp-header">SCHOOL HEAD</h2>
   </div>
  </section>
 
@@ -66,8 +67,29 @@
   </div>
  </section>
 
+ <!-- feedback section -->
+ <section>
+  <div class="feedback-wrapper">
+   <h2>Feedback Form:</h2>
+   <div class="feedback-form-box">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScDXUktGvcO9q6dMpfMK_jCXJpn4phpfTQRi030oTHtQSCz7g/viewform" target="_blank"></a>
+    <iframe class="form-preview" src="https://docs.google.com/forms/d/e/1FAIpQLScDXUktGvcO9q6dMpfMK_jCXJpn4phpfTQRi030oTHtQSCz7g/viewform" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+    <div class="header">
+     <h3>HELP US SERVE YOU BETTER</h3>
+     <p>This Client Satisfaction Measurement (CSM) tracks the customer experience of government offices. Your feedback on your recently concluded transaction will help this office provide a better service. Personal information shared will be kept confidential and you always have the option not to answer this form.</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- tagline section -->
+ <?php include './includes/tagline.php' ?>
+
+ <!-- footer section -->
+ <?php include './includes/footer.php' ?>
 
  <script src="public/js/header.js"></script>
+ <script src="public/js/contact.js"></script>
 </body>
 
 </html>

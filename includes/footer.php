@@ -8,6 +8,7 @@
 
   footer {
    background: #1b4332;
+   margin-top: auto;
   }
 
   .footer-wrapper {

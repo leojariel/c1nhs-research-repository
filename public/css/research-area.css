@@ -6,11 +6,14 @@
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ scrollbar-width: thin;
 }
 
 body {
  font-family: "Montserrat", sans-serif;
- /* background-color: #121212; */
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
 }
 
 header {
@@ -307,7 +310,7 @@ section.c1nhs-rr-bg-section {
  gap: 1em;
 }
 .content-preview :is(.title, .abstract) {
- background: #ced4da;
+ background: #cce3de;
  padding: 1em;
  border-radius: 10px;
 }
