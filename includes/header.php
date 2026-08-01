@@ -22,17 +22,17 @@
    </ul>
   </nav>
 
-  <!-- <div class="accessibility-wrapper">
+  <div class="accessibility-wrapper">
    <div class="profile-wrapper">
-    <i class="ti ti-user-circle"></i>
+    <a href="profile.php"><i class="ti ti-user-circle"></i></a>
    </div>
    <div class="burger-button">
     <i class="ti ti-menu-2"></i>
    </div>
-  </div> -->
-  <div class="burger-button">
-   <i class="ti ti-menu-2"></i>
   </div>
+  <!-- <div class="burger-button">
+   <i class="ti ti-menu-2"></i>
+  </div> -->
  </div>
 
  <div class="sub-navbar">
@@ -131,7 +131,7 @@
   border-radius: 10px;
  }
 
- .profile-wrapper {
+ .profile-wrapper a {
   font-size: 46px;
   color: #1b4332;
   cursor: pointer;
