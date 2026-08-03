@@ -59,6 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
    setTimeout(() => {
     toast.style.display = "none";
    }, 500);
-  }, 3000); // 3 seconds timeout
+  }, 5000); // 3 seconds timeout
  }
 });

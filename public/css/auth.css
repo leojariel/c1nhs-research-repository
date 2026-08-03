@@ -369,6 +369,10 @@ p,
  background-color: #f8d7da;
  color: #721c24;
 }
+.alert-success {
+ background-color: #d4edda;
+ color: #155724;
+}
 
 .move-up {
  transform: translateY(-100%);

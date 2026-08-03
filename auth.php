@@ -26,7 +26,7 @@ require_once './scripts/authentication-api.php';
   <?php endif; ?>
 
   <?php if (!empty($success_message)): ?>
-   <div id="toast-message" class="alert alert-danger">
+   <div id="toast-message" class="alert alert-success">
     <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
    </div>
   <?php endif; ?>
