@@ -1,6 +1,6 @@
 <?php
 
-
+require_once './scripts/authentication-api.php';
 
 ?>
 
@@ -58,7 +58,7 @@
        <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required maxlength="12">
+        <input type="text" name="lrn" id="c1nhs-username" maxlength="12">
        </div>
       </div>
 
@@ -82,7 +82,7 @@
       <div class="password-wrapper">
        <label for="password">Password:</label>
        <div class="show-pass-wrapper">
-        <input class="pass-input" type="password" id="password" required minlength="8" maxlength="12">
+        <input class="pass-input" type="password" name="password" id="password" minlength="8" maxlength="12">
         <i class="ti toggle-icon ti-eye-closed"></i>
         <div class="show-pass-buttons"></div>
        </div>
@@ -91,7 +91,7 @@
       <div class="c-password-wrapper">
        <label for="c-password">Confirm password:</label>
        <div class="show-pass-wrapper">
-        <input class="pass-input" type="password" id="c-password" required minlength="8" maxlength="12">
+        <input class="pass-input" type="password" name="confirm_password" id="c-password" minlength="8" maxlength="12">
         <i class="ti toggle-icon ti-eye-closed"></i>
        </div>
       </div>
@@ -99,7 +99,7 @@
       <p class="help-message">If you need help, click <a href="#">guide</a></p>
 
       <div class="auth-buttons">
-       <button class="activate-submit-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
+       <button class="activate-submit-btn" name="activate-btn" type="submit">Activate account <i class="ti ti-key"></i></button>
        <button class="log-in-nav-btn" type="button">Log In</button>
       </div>
 
