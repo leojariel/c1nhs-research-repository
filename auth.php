@@ -19,6 +19,18 @@ require_once './scripts/authentication-api.php';
 
 <body>
  <main>
+  <?php if (!empty($error_message)): ?>
+   <div id="toast-message" class="alert alert-danger">
+    <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
+   </div>
+  <?php endif; ?>
+
+  <?php if (!empty($success_message)): ?>
+   <div id="toast-message" class="alert alert-danger">
+    <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
+   </div>
+  <?php endif; ?>
+
   <aside id="auth-welcome">
    <div class="auth-wrapper">
     <div class="c1nhs-logo-container">
@@ -51,7 +63,7 @@ require_once './scripts/authentication-api.php';
      <p>Activate your C1NHS account</p>
     </div>
 
-    <form action="" method="POST">
+    <form action="" method="POST" autocomplete="off">
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">

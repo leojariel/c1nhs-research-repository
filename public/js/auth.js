@@ -46,3 +46,19 @@ showPassWrapper.forEach((wrapper) => {
   icon.classList.toggle("ti-eye", isPassword);
  });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+ const toast = document.getElementById("toast-message");
+
+ if (toast) {
+  // 1. Wait 3 seconds (3000ms), then trigger fade out transition
+  setTimeout(() => {
+   toast.classList.add("move-up");
+
+   // 2. Remove the element from the page completely after the 0.5s fade finishes
+   setTimeout(() => {
+    toast.style.display = "none";
+   }, 500);
+  }, 3000); // 3 seconds timeout
+ }
+});

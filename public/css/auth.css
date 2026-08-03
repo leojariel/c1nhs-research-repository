@@ -352,3 +352,24 @@ p,
   flex-direction: column;
  }
 }
+
+/* ! error message */
+.alert {
+ position: fixed;
+ font-size: 24px;
+ font-weight: 600;
+ width: 100%;
+ padding: 0.5em 0.8em;
+ transform: translateY(0);
+ transition: transform 0.5s ease;
+ z-index: 999;
+}
+
+.alert-danger {
+ background-color: #f8d7da;
+ color: #721c24;
+}
+
+.move-up {
+ transform: translateY(-100%);
+}
