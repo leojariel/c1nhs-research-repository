@@ -1,3 +1,9 @@
+<?php
+
+require_once './scripts/authentication-api.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -112,6 +118,12 @@
       </li>
      </ul>
     </div>
+
+    <form action="" method="POST">
+     <button type="submit" name="logout-btn">
+      Log Out
+     </button>
+    </form>
 
    </div>
   </section>

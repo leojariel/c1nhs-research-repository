@@ -106,12 +106,39 @@ if (isset($_POST['activate-btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if (isset($_POST['login_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
- $lrn = $_POST['lrn'] ?? '';
+ $lrn = trim($_POST['lrn']) ?? '';
  $password = $_POST['password'] ?? '';
 
  if (empty($lrn) || empty($password)) {
-  $error_message = 'All fields are required';
+  $error_message = 'All fields are required.';
  } else {
-  $success_message = 'wow!';
+
+  $stmt = $pdo->prepare("SELECT student_id, lrn, password, is_activated FROM students WHERE lrn = :lrn LIMIT 1");
+  $stmt->execute(['lrn' => $lrn]);
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if (!$user) {
+   $error_message = "The provided LRN does not exist in our records.";
+  } else if ((int)$user['is_activated'] !== 1) {
+   $error_message = "This LRN hasn't been activated yet. Please kindly activate it first.";
+  } else {
+   $id = $user['student_id'];
+   $lrn = $user['lrn'];
+   $hashed_password = $user['password'];
+
+   if (password_verify($password, $hashed_password)) {
+    if (session_status() === PHP_SESSION_NONE) {
+     session_start();
+    }
+
+    $_SESSION['id'] = $id;
+    $_SESSION['lrn'] = $lrn;
+    $_SESSION['loggedin'] = true;
+
+    header("Location: home.php");
+   } else {
+    $error_message = 'Password do not match.';
+   }
+  }
  }
 }
