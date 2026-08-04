@@ -1,5 +1,14 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+ session_start();
+}
+
+if ($_SESSION['loggedin'] ?? false) {
+ header("Location: home.php");
+ exit;
+}
+
 require_once './scripts/authentication-api.php';
 
 ?>

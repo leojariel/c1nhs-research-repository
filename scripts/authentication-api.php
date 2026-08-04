@@ -1,14 +1,5 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
- session_start();
-}
-
-if ($_SERVER['loggedin'] ?? false) {
- header("Location: home.php");
- exit;
-}
-
 require_once './config/db_config.php';
 
 $error_message = '';
@@ -141,4 +132,19 @@ if (isset($_POST['login_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
    }
   }
  }
+}
+
+
+// ! logout
+if (isset($_POST['logout-btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+ if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+ }
+
+ $_SESSION = [];
+
+ session_destroy();
+
+ header('location: auth.php');
+ exit;
 }

@@ -1,3 +1,15 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+ session_start();
+}
+
+// If already logged in, don't show the login form—send them straight to home
+if (!($_SESSION['loggedin'] ?? false)) {
+ header("Location: auth.php");
+ exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
