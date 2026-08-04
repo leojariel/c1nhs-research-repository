@@ -1,9 +1,20 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+ session_start();
+}
+
+if ($_SERVER['loggedin'] ?? false) {
+ header("Location: home.php");
+ exit;
+}
+
 require_once './config/db_config.php';
 
 $error_message = '';
+$success_message = '';
 
+// ! activation logic
 if (isset($_POST['activate-btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
  $required_fields = [
@@ -87,5 +98,20 @@ if (isset($_POST['activate-btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
    }
   }
+ }
+}
+
+
+// ! login logic
+
+if (isset($_POST['login_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+ $lrn = $_POST['lrn'] ?? '';
+ $password = $_POST['password'] ?? '';
+
+ if (empty($lrn) || empty($password)) {
+  $error_message = 'All fields are required';
+ } else {
+  $success_message = 'wow!';
  }
 }

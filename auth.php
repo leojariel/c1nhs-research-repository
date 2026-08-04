@@ -27,7 +27,7 @@ require_once './scripts/authentication-api.php';
 
   <?php if (!empty($success_message)): ?>
    <div id="toast-message" class="alert alert-success">
-    <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
+    <?= htmlspecialchars(ucfirst($success_message), ENT_QUOTES, 'UTF-8'); ?>
    </div>
   <?php endif; ?>
 
@@ -129,21 +129,21 @@ require_once './scripts/authentication-api.php';
      <p>Input your registered C1NHS account</p>
     </div>
 
-    <form action="" method="POST">
+    <form action="" method="POST" autocomplete="off">
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
        <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required maxlength="12">
+        <input type="text" id="c1nhs-username" name="lrn" maxlength="12">
        </div>
       </div>
 
       <div class="password-wrapper">
        <label for="password">Password:</label>
        <div class="show-pass-wrapper">
-        <input class="pass-input" type="password" id="password" required>
+        <input class="pass-input" name="password" type="password" id="password">
         <i class="ti toggle-icon ti-eye-closed"></i>
        </div>
       </div>
@@ -154,7 +154,7 @@ require_once './scripts/authentication-api.php';
        <div class="forgot-btn-pass-wrapper">
         <button class="forgot-pass-btn" type="button">Forgot password?</button>
        </div>
-       <button class="login-submit-btn" type="submit">Log in <i class="ti ti-login-2"></i></button>
+       <button class="login-submit-btn" name="login_btn" type="submit">Log in <i class="ti ti-login-2"></i></button>
        <button class="activate-acc-nav-btn" type="button">Activate Account</button>
       </div>
 
