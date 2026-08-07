@@ -27,18 +27,7 @@ require_once './scripts/authentication-api.php';
 </head>
 
 <body>
- <main>
-  <?php if (!empty($error_message)): ?>
-   <div id="toast-message" class="alert alert-danger">
-    <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
-   </div>
-  <?php endif; ?>
-
-  <?php if (!empty($success_message)): ?>
-   <div id="toast-message" class="alert alert-success">
-    <?= htmlspecialchars(ucfirst($success_message), ENT_QUOTES, 'UTF-8'); ?>
-   </div>
-  <?php endif; ?>
+ <main data-active-view="<?php echo $active_view; ?>">
 
   <aside id="auth-welcome">
    <div class="auth-wrapper">
@@ -61,9 +50,21 @@ require_once './scripts/authentication-api.php';
 
   <div class="divider-line"></div>
 
-  <fieldset>
+  <fieldset id="fieldSet">
+
+   <?php if (!empty($error_message)): ?>
+    <div id="toast-message" class="alert alert-danger">
+     <?= htmlspecialchars(ucfirst($error_message), ENT_QUOTES, 'UTF-8'); ?>
+    </div>
+   <?php endif; ?>
+
+   <?php if (!empty($success_message)): ?>
+    <div id="toast-message" class="alert alert-success">
+     <?= htmlspecialchars(ucfirst($success_message), ENT_QUOTES, 'UTF-8'); ?>
+    </div>
+   <?php endif; ?>
    <!-- Register Wrap -->
-   <div style="display: flex;" class="field-wrapper register-wrapper">
+   <div id="register" class="field-wrapper register-wrapper <?= ($active_view === 'register') ? 'active' : '' ?>">
     <div class="c1nhs-logo-container auth-area">
      <img src="public/img/c1nhs-logo.webp" width="100" alt="">
     </div>
@@ -72,7 +73,7 @@ require_once './scripts/authentication-api.php';
      <p>Activate your C1NHS account</p>
     </div>
 
-    <form action="" method="POST" autocomplete="off">
+    <form action="#register" method="POST" autocomplete="off">
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
@@ -82,23 +83,6 @@ require_once './scripts/authentication-api.php';
         <input type="text" name="lrn" id="c1nhs-username" maxlength="12">
        </div>
       </div>
-
-      <!-- <div class="grade-lvl-wrapper">
-       <label for="grade-lvl">Grade lvl.</label>
-       <select id="grade-lvl" required>
-        <option value="">Select</option>
-        <optgroup label="SHS">
-         <option value="12">12</option>
-         <option value="11">11</option>
-        </optgroup>
-        <optgroup label="JHS">
-         <option value="10">10</option>
-         <option value="9">9</option>
-         <option value="8">8</option>
-         <option value="7">7</option>
-        </optgroup>
-       </select>
-      </div> -->
 
       <div class="password-wrapper">
        <label for="password">Password:</label>
@@ -129,7 +113,7 @@ require_once './scripts/authentication-api.php';
    </div>
 
    <!-- log in wrapper -->
-   <div style="display: none;" class="field-wrapper login-wrapper">
+   <div id="login" class="field-wrapper login-wrapper <?= ($active_view === 'login') ? 'active' : '' ?>">
     <div class="c1nhs-logo-container auth-area">
      <img src="public/img/c1nhs-logo.webp" width="100" alt="">
     </div>
@@ -138,7 +122,7 @@ require_once './scripts/authentication-api.php';
      <p>Input your registered C1NHS account</p>
     </div>
 
-    <form action="" method="POST" autocomplete="off">
+    <form action="#login" method="POST" autocomplete="off">
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
@@ -172,7 +156,7 @@ require_once './scripts/authentication-api.php';
    </div>
 
    <!-- forgot password -->
-   <div style="display: none;" class="field-wrapper forgot-pass-wrapper">
+   <div id="forgot" class="field-wrapper forgot-pass-wrapper <?= ($active_view === 'forgot') ? 'active' : '' ?>">
     <div class="c1nhs-logo-container auth-area">
      <img src="public/img/c1nhs-logo.webp" width="100" alt="">
     </div>
@@ -181,21 +165,21 @@ require_once './scripts/authentication-api.php';
      <p>Remember your C1NHS username</p>
     </div>
 
-    <form action="" method="POST">
+    <form action="#forgot" method="POST" autocomplete="off">
      <div class="input-fields">
 
       <div class="c1nhs-username-wrapper">
        <label for="c1nhs-username">Your LRN:</label>
        <div class="username-placeholder-box">
         <div class="prefix-username">C1NHS# -</div>
-        <input type="text" id="c1nhs-username" required maxlength="12">
+        <input type="text" name="lrn_retrieve" id="c1nhs-username" maxlength="12" value="<?= $_POST['lrn_retrieve'] ?? ''; ?>">
        </div>
       </div>
 
       <p class="help-message">If you need help, click <a href="#">guide</a></p>
 
       <div class="auth-buttons">
-       <button class="retrieve-acc-submit-btn" type="submit">Retrieve password <i class="ti ti-lock-open-2"></i></button>
+       <button class="retrieve-acc-submit-btn" type="submit" name="retrieve_btn">Retrieve account <i class="ti ti-lock-open-2"></i></button>
        <button class="log-in-nav-btn" type="button">Log In</button>
        <button class="activate-acc-nav-btn" type="button">Activate Account</button>
       </div>
@@ -203,6 +187,49 @@ require_once './scripts/authentication-api.php';
      </div>
     </form>
    </div>
+
+   <!-- change password -->
+   <div id="changePass" class="field-wrapper change-pass-wrapper <?= ($active_view === 'changePass') ? 'active' : '' ?>">
+    <div class="c1nhs-logo-container auth-area">
+     <img src="public/img/c1nhs-logo.webp" width="100" alt="">
+    </div>
+    <div class="field-header">
+     <h2>Change your password</h2>
+     <p>Input your new password & confirm it</p>
+    </div>
+
+    <form action="#changePass" method="POST" autocomplete="off">
+     <div class="input-fields">
+
+      <div class="password-wrapper">
+       <label for="password">New password:</label>
+       <div class="show-pass-wrapper">
+        <input class="pass-input" type="password" name="new_password" id="password" minlength="8" maxlength="12">
+        <i class="ti toggle-icon ti-eye-closed"></i>
+        <div class="show-pass-buttons"></div>
+       </div>
+      </div>
+
+      <div class="c-password-wrapper">
+       <label for="c-password">Confirm password:</label>
+       <div class="show-pass-wrapper">
+        <input class="pass-input" type="password" name="confirm_password" id="c-password" minlength="8" maxlength="12">
+        <i class="ti toggle-icon ti-eye-closed"></i>
+       </div>
+      </div>
+
+      <p class="help-message">If you need help, click <a href="#">guide</a></p>
+
+      <div class="auth-buttons">
+       <button class="change-pass-submit-btn" type="submit" name="change_pass_btn">Change password <i class="ti ti-lock-open-2"></i></button>
+       <button class="log-in-nav-btn" type="button">Go back</button>
+      </div>
+
+     </div>
+    </form>
+   </div>
+
+
   </fieldset>
  </main>
 

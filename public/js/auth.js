@@ -1,35 +1,59 @@
-const fieldWrapper = document.querySelectorAll(".field-wrapper");
-const activateAccBtn = document.querySelectorAll(".activate-acc-nav-btn");
-const logInNavBtn = document.querySelectorAll(".log-in-nav-btn");
-const forgotPassBtn = document.querySelector(".forgot-pass-btn");
+document.addEventListener("DOMContentLoaded", () => {
+ const wrappers = {
+  register: document.querySelector(".register-wrapper"),
+  login: document.querySelector(".login-wrapper"),
+  forgot: document.querySelector(".forgot-pass-wrapper"),
+  changePass: document.querySelector(".change-pass-wrapper"),
+ };
 
-activateAccBtn.forEach((btn) => {
- btn.addEventListener("click", () => {
-  cleanUI();
+ function switchView(targetKey) {
+  if (!wrappers[targetKey]) targetKey = "register";
 
-  fieldWrapper[0].style.display = "flex";
+  Object.keys(wrappers).forEach((key) => {
+   if (key === targetKey) {
+    wrappers[key].classList.add("active");
+   } else wrappers[key].classList.remove("active");
+  });
+
+  if (window.location.hash !== `#${targetKey}`) {
+   history.replaceState(null, null, `#${targetKey}`);
+  }
+ }
+
+ document.querySelectorAll(".log-in-nav-btn").forEach((btn) => {
+  btn.addEventListener("click", () => switchView("login"));
+ });
+
+ document.querySelectorAll(".activate-acc-nav-btn").forEach((btn) => {
+  btn.addEventListener("click", () => switchView("register"));
+ });
+
+ document.querySelectorAll(".forgot-pass-btn").forEach((btn) => {
+  btn.addEventListener("click", () => switchView("forgot"));
+ });
+
+ function syncViewWithHash() {
+  const mainElement = document.querySelector("main");
+  const phpActiveView = mainElement ? mainElement.dataset.activeView : null;
+
+  const hash = window.location.hash.replace("#", "");
+
+  if (phpActiveView && wrappers[phpActiveView]) {
+   switchView(phpActiveView);
+  } else if (hash && wrappers[hash]) {
+   switchView(hash);
+  } else {
+   switchView("register");
+  }
+ }
+
+ syncViewWithHash();
+
+ window.addEventListener("hashchange", () => {
+  const hash = window.location.hash.replace("#", "");
+  switchView(hash);
  });
 });
-
-logInNavBtn.forEach((btn) => {
- btn.addEventListener("click", () => {
-  cleanUI();
-
-  fieldWrapper[1].style.display = "flex";
- });
-});
-
-forgotPassBtn.addEventListener("click", () => {
- cleanUI();
-
- fieldWrapper[2].style.display = "flex";
-});
-
-function cleanUI() {
- fieldWrapper.forEach((field) => {
-  field.style.display = "none";
- });
-}
 
 const showPassWrapper = document.querySelectorAll(".show-pass-wrapper");
 
