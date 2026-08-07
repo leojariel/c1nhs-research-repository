@@ -34,7 +34,7 @@ require_once './scripts/authentication-api.php';
       <div class="profile-img"></div>
      </div>
      <div class="user-details">
-      <h2 class="student-name">Juan Dela Cruz</h2>
+      <h2 class="student-name">John Leo Jariel</h2>
       <h3 class="grade_and_section">
        <span class="grade">Grade 12 |</span>
        <span class="section">Lanzones</span>

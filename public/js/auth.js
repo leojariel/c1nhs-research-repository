@@ -86,3 +86,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 5000); // 3 seconds timeout
  }
 });
+
+// ! auth page image slider
+const images = [
+ "c1nhs-bg.jpg",
+ "slides/research-emcee-2023-2024.jpg",
+ "slides/research-participate-1.jpg",
+ "slides/research-oral-winner-2023-2024.jpg",
+ "slides/research-participate-2.jpg",
+ "slides/research-poster-winner-2023-2024.jpg",
+ "slides/research-participate-3.jpg",
+ "slides/best-in-oral-1st-2023-2024.jpg",
+ "slides/research-participate-4.jpg",
+ "slides/best-in-poster-1st-2023-2024.jpg",
+ "slides/best-in-oral-2nd-2023-2024.jpg",
+ "slides/best-in-poster-2nd-2023-2024.jpg",
+ "slides/best-in-oral-3rd-2023-2024.jpg",
+ "slides/best-in-poster-3rd-2023-2024.jpg",
+ "slides/best-in-poster-4th-2023-2024.jpg",
+];
+
+images.forEach((src) => {
+ const img = new Image();
+ img.src = src;
+});
+
+let imageIndex = 0;
+const SLIDE_DURATION = 3000;
+
+const asideImageSlider = document.querySelector("aside");
+
+function autoImageSlider() {
+ setInterval(() => {
+  imageIndex = (imageIndex + 1) % images.length;
+  asideImageSlider.style.setProperty(
+   "--bg-image",
+   `url("../img/${images[imageIndex]}")`,
+  );
+ }, SLIDE_DURATION);
+}
+
+autoImageSlider();
