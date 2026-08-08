@@ -54,12 +54,24 @@ section.c1nhs-rr-bg-section {
  border: 1px solid #a4a4a4;
  background: #f6fff8;
 }
+.profile-box.error {
+ font-size: clamp(18px, 3vw, 24px);
+ font-weight: 600;
+ color: #da627d;
+ border: 1px solid #da627d;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 500px;
+}
 .profile-accessibility {
  display: flex;
  justify-content: flex-end;
+ gap: 1em;
+ align-items: center;
  margin-bottom: 1em;
 }
-.profile-accessibility .edit-profile-btn {
+.profile-accessibility :is(.edit-profile-btn, .logout-btn) {
  font-family: "Montserrat", sans-serif;
  font-weight: 600;
  font-size: clamp(11px, 2vw, 14px);
@@ -69,6 +81,11 @@ section.c1nhs-rr-bg-section {
  border-radius: 25px;
  border: none;
  cursor: pointer;
+}
+.profile-accessibility .logout-btn {
+ background-color: #f4f4f5;
+ color: #52525b;
+ border: 1px solid #e4e4e7;
 }
 .profile-details {
  display: flex;

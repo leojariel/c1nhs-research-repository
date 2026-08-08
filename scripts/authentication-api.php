@@ -114,6 +114,7 @@ if (isset($_POST['login_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
    $error_message = "The provided LRN does not exist in our records.";
   } else if ((int)$user['is_activated'] !== 1) {
    $error_message = "This LRN hasn't been activated yet. Please kindly activate it first.";
+   $active_view = 'register';
   } else {
    $id = $user['student_id'];
    $lrn = $user['lrn'];
@@ -183,7 +184,7 @@ if (isset($_POST['change_pass_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   $active_view = 'forgot';
  } else if (empty($new_password) || empty($confirm_password)) {
   $error_message = 'All fields are required.';
- } else if ($new_password !== $new_password) {
+ } else if ($new_password !== $confirm_password) {
   $error_message = 'Password do not match.';
  } else {
   $password_pattern = '/^(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};\':"\\\\|,.<>\/?]).{8,}$/';
