@@ -58,21 +58,21 @@ require_once './scripts/profile-api.php';
        <div class="profile-img"></div>
       </div>
       <div class="user-details">
-       <h2 class="student-name">John Leo Jariel</h2>
+       <h2 class="student-name"><?= $full_name ?: "Loading..." ?><span class="department-label <?= $isShs ? 'shs-color' : 'jhs-color'; ?>"><?= $isShs ? "SHS - " . $student['strand'] : 'JHS'; ?></span></h2>
        <h3 class="grade_and_section">
-        <span class="grade">Grade 12 |</span>
-        <span class="section">Lanzones</span>
+        <span class="grade"><?= $grade_level ?: "Loading..." ?> |</span>
+        <span class="section"><?= $section_name ?: "Loading..." ?></span>
        </h3>
        <h3 class="lrn">
         <span>LRN: </span>
-        <span class="lrn-codes">123456789123</span>
+        <span class="lrn-codes"><?= $lrn ?: "Loading..." ?></span>
        </h3>
       </div>
      </div>
 
      <div class="bio-section">
       <div class="bio-box">
-       <p>Sama-samang Cagsiayin, Disiplina at Edukasyon ang Mithiin!</p>
+       <p><?= $bio ?: "Sama-samang Cagsiayin, Disiplina at Edukasyon ang Mithiin!" ?></p>
       </div>
      </div>
 
