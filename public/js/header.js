@@ -65,6 +65,43 @@ function showLogOutModal() {
  const wrapper = document.createElement("div");
  wrapper.classList.add("confirm-logout-wrapper");
 
+ const mainModal = document.createElement("div");
+ mainModal.classList.add("modal");
+
+ const modalHeader = document.createElement("div");
+ modalHeader.classList.add("modal-header-box");
+ const headerTitle = document.createElement("h2");
+ headerTitle.classList.add("header-text-title");
+ headerTitle.textContent = "Are you sure?";
+ modalHeader.appendChild(headerTitle);
+
+ const modalContent = document.createElement("div");
+ modalContent.classList.add("modal-content");
+ const p = document.createElement("p");
+ p.textContent =
+  "Note that if you log out, you will input your credentials when you log in again. Before you log out, please take note of your password. Thank you! :))";
+ modalContent.appendChild(p);
+
+ const buttonWrapper = document.createElement("div");
+ buttonWrapper.classList.add("button-wrapper");
+ const createBtn = (...classes) => {
+  const btn = document.createElement("button");
+  btn.classList.add(...classes);
+  return btn;
+ };
+ const logOutBtn = createBtn("modal-btn", "logout-btn");
+ logOutBtn.name = "log_out_btn";
+ logOutBtn.textContent = "Confirm";
+ const cancelBtn = createBtn("modal-btn", "cancel-btn");
+ cancelBtn.textContent = "Cancel";
+ buttonWrapper.append(cancelBtn, logOutBtn);
+
+ mainModal.appendChild(modalHeader);
+ mainModal.appendChild(modalContent);
+ mainModal.appendChild(buttonWrapper);
+
+ wrapper.appendChild(mainModal);
+
  document.body.appendChild(wrapper);
 }
 
