@@ -33,16 +33,17 @@ require_once './scripts/profile-api.php';
    <div class="modal">
     <div class="modal-header">
      <h2>Profile</h2>
+     <button type="button" class="close-btn"><i class="ti ti-square-rounded-x"></i></button>
     </div>
     <div class="modal-content">
      <h3>Choose your icon:</h3>
 
      <div class="icon-skin-tone-container">
-      <label for="fair-btn" class="tone_toggle">
-       <input type="radio" name="tone_toggle" id="fair-btn" value="fair" checked onchange="swichtToneContainer('fair');"> Fair
+      <label for="fair-btn" class="tone-toggle">
+       <input type="radio" name="tone_toggle" id="fair-btn" value="fair" checked onchange="swichtToneContainer('fair');"> Fair Skin
       </label>
-      <label for="tan-btn" class="tone_toggle">
-       <input type="radio" name="tone_toggle" id="tan-btn" value="tan" onchange="swichtToneContainer('tan'); "> Tan
+      <label for="tan-btn" class="tone-toggle">
+       <input type="radio" name="tone_toggle" id="tan-btn" value="tan" onchange="swichtToneContainer('tan'); "> Tan Skin
       </label>
      </div>
 
@@ -55,7 +56,7 @@ require_once './scripts/profile-api.php';
          ?>
          <label class="icon-option">
           <input type="radio" name="selected_icon" value="<?= $filename ?>">
-          <img width="100" src="<?= $imgPath ?>.jpeg" alt="profile option">
+          <img src="<?= $imgPath ?>.jpeg" alt="profile option">
          </label>
         <?php endforeach; ?>
        <?php else: ?>
@@ -75,6 +76,10 @@ require_once './scripts/profile-api.php';
        <div class="profile-lrn-wrapper">
         <label for="lrn-code">LRN:</label>
         <input type="text" class="lrn-code" id="lrn-code" value="<?= $lrn; ?>" disabled>
+       </div>
+       <div class="profile-bio-wrapper">
+        <label for="bio">Bio:</label>
+        <textarea name="bio" id="bio"></textarea>
        </div>
       </fieldset>
      </div>
