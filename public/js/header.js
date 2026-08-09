@@ -37,3 +37,35 @@ window.addEventListener("scroll", () => {
 
  lastScrollY = currentScrollY;
 });
+
+// ! profile dropdown
+const profileBtn = {
+ goToProfileBtn: document.querySelector(".profile-btn"),
+ logOutBtn: document.querySelector(".logout-btn"),
+};
+
+Object.entries(profileBtn).forEach(([key, element]) => {
+ if (element) {
+  element.addEventListener("click", () => {
+   switch (key) {
+    case "goToProfileBtn":
+     location.href = "profile.php";
+     break;
+    case "logOutBtn":
+     console.log("yow");
+     break;
+    default:
+     console.log("no way");
+   }
+  });
+ }
+});
+
+function showLogOutModal() {
+ const wrapper = document.createElement("div");
+ wrapper.classList.add("confirm-logout-wrapper");
+
+ document.body.appendChild(wrapper);
+}
+
+showLogOutModal();

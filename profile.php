@@ -148,6 +148,7 @@ require_once './scripts/profile-api.php';
   <?php endif; ?>
  </main>
 
+ <script src="public/js/header.js"></script>
  <script src="public/js/profile.js"></script>
 </body>
 

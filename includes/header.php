@@ -24,7 +24,13 @@
 
   <div class="accessibility-wrapper">
    <div class="profile-wrapper">
-    <a href="profile.php"><i class="ti ti-user-circle"></i></a>
+    <div class="profile-icon""><i class=" ti ti-user-circle"></i></div>
+    <div class="dropdown-menu">
+     <ul>
+      <li class="nav-btn"><button type="button" class="dropdown-btn profile-btn">Go to profile</button></li>
+      <li class="nav-btn"><button type="button" class="dropdown-btn logout-btn">Log out</button></li>
+     </ul>
+    </div>
    </div>
    <div class="burger-button">
     <i class="ti ti-menu-2"></i>
@@ -131,7 +137,61 @@
   border-radius: 10px;
  }
 
- .profile-wrapper a {
+ .profile-wrapper {
+  position: relative;
+ }
+
+ .profile-wrapper .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  padding: 0.5em;
+  border-radius: 10px;
+  background-color: #80ed99;
+
+  display: none;
+ }
+
+ .profile-wrapper:hover .dropdown-menu {
+  display: block;
+ }
+
+ .profile-wrapper .dropdown-menu>ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+ }
+
+ .dropdown-menu .dropdown-btn {
+  width: 100%;
+  padding: 0.5em 0.8em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+ }
+
+ .dropdown-btn.profile-btn {
+  background-color: #22577a;
+  color: #c7f9cc;
+ }
+
+ .dropdown-btn.profile-btn:active,
+ .dropdown-btn.logout-btn:active {
+  transform: scale(0.950);
+ }
+
+ .dropdown-btn.logout-btn {
+  background-color: #ffccd5;
+  color: #461220;
+ }
+
+ .profile-wrapper .profile-icon {
   font-size: 46px;
   color: #1b4332;
   cursor: pointer;
@@ -191,5 +251,17 @@
    display: block;
    cursor: pointer;
   }
+ }
+
+ /* ! modal */
+ .confirm-logout-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: black;
+  opacity: 0.5;
  }
 </style>
