@@ -84,7 +84,13 @@ require_once './scripts/profile-api.php';
       </fieldset>
      </div>
 
+     <div class="buttons-section">
+      <button type="button" class="cancel-profile-btn">Cancel</button>
+      <button type="submit" class="save-profile-btn">Save</button>
+     </div>
     </div>
+
+
    </div>
   </div>
  </form>

@@ -7,6 +7,7 @@
  margin: 0;
  padding: 0;
  scrollbar-width: thin;
+ scrollbar-color: #6b7280 #9fffcb;
 }
 
 body {
@@ -530,6 +531,9 @@ section.c1nhs-rr-bg-section {
 }
 .field-container fieldset label {
  display: block;
+ font-size: 18px;
+ font-weight: 500;
+ margin-bottom: 0.5em;
 }
 .field-container fieldset :is(input, textarea) {
  width: 100%;
@@ -543,4 +547,26 @@ section.c1nhs-rr-bg-section {
  font-family: "Montserrat", sans-serif;
  min-height: 150px;
  resize: vertical;
+}
+
+.buttons-section {
+ display: flex;
+ justify-content: flex-end;
+ gap: 1em;
+}
+.buttons-section button {
+ padding: 0.5em 0.8em;
+ font-size: 18px;
+ font-weight: 500;
+ border-radius: 10px;
+ border: 1px solid #a4a4a4;
+ cursor: pointer;
+}
+.buttons-section .save-profile-btn {
+ background-color: #9fffcb;
+ color: black;
+}
+.buttons-section .cancel-profile-btn {
+ background-color: transparent;
+ color: black;
 }
