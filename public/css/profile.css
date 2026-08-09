@@ -100,9 +100,13 @@ section.c1nhs-rr-bg-section {
  width: 200px;
  height: 200px;
  background: linear-gradient(45deg, #1b4332, #abffce);
+ overflow: hidden;
  border: 1px solid #a4a4a4;
  border-radius: 50%;
  font-weight: 400;
+}
+.profile-img > img {
+ width: 100%;
 }
 @media (min-width: 715px) {
  .user-details {
@@ -415,4 +419,33 @@ section.c1nhs-rr-bg-section {
  font-size: 18px;
  font-weight: 600;
  font-style: italic;
+}
+
+/* ! profile modal */
+.profile-modal-wrapper {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 999;
+
+ background: rgba(0, 0, 0, 0.4);
+ backdrop-filter: blur(5px);
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.profile-modal-wrapper .modal {
+ width: min(900px, 100%);
+ background-color: #c7f9cc;
+}
+
+.icon-grid.hidden {
+ display: none;
+}
+.icon-grid.active {
+ display: grid;
 }

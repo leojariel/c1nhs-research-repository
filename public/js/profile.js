@@ -237,3 +237,18 @@
    tooltip.classList.remove("show");
   });
 })();
+
+// ! profile modal
+
+function swichtToneContainer(tone) {
+ document.querySelectorAll(".icon-grid").forEach((grid) => {
+  grid.classList.remove("active");
+  grid.classList.add("hidden");
+ });
+
+ const targetGrid = document.getElementById(tone + "-grid");
+ if (targetGrid) {
+  targetGrid.classList.remove("hidden");
+  targetGrid.classList.add("active");
+ }
+}

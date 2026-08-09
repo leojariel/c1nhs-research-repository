@@ -28,6 +28,62 @@ require_once './scripts/profile-api.php';
 </head>
 
 <body>
+ <form action="" method="POST">
+  <div class="profile-modal-wrapper">
+   <div class="modal">
+    <div class="modal-header">
+     <h2>Profile</h2>
+    </div>
+    <div class="modal-content">
+     <h3>Choose your icon:</h3>
+
+     <div class="icon-skin-tone-container">
+      <label for="fair-btn" class="tone_toggle">
+       <input type="radio" name="tone_toggle" id="fair-btn" value="fair" checked onchange="swichtToneContainer('fair');"> Fair
+      </label>
+      <label for="tan-btn" class="tone_toggle">
+       <input type="radio" name="tone_toggle" id="tan-btn" value="tan" onchange="swichtToneContainer('tan'); "> Tan
+      </label>
+     </div>
+
+     <?php foreach (['fair', 'tan'] as $tone): ?>
+      <div id="<?= $tone ?>-grid" class="icon-grid <?= ($tone === 'fair') ? 'active' : 'hidden' ?>">
+       <?php if (!empty($icons_by_tone[$tone])): ?>
+        <?php foreach ($icons_by_tone[$tone] as $filename): ?>
+         <?php
+         $imgPath = "public/img/profile-icon/{$deptFolder}/{$genderFolder}/{$tone}/{$filename}";
+         ?>
+         <label class="icon-option">
+          <input type="radio" name="selected_icon" value="<?= $filename ?>">
+          <img width="100" src="<?= $imgPath ?>.jpeg" alt="profile option">
+         </label>
+        <?php endforeach; ?>
+       <?php else: ?>
+       <?php endif; ?>
+      </div>
+     <?php endforeach; ?>
+
+     <div class="field-container">
+      <fieldset>
+       <div class="field-header">
+        <h3>Change your details:</h3>
+       </div>
+       <div class="profile-full-name-wrapper">
+        <label for="full-name">Name:</label>
+        <input type="text" class="full-name" id="full-name" value="<?= $full_name; ?>" disabled>
+       </div>
+       <div class="profile-lrn-wrapper">
+        <label for="lrn-code">LRN:</label>
+        <input type="text" class="lrn-code" id="lrn-code" value="<?= $lrn; ?>" disabled>
+       </div>
+      </fieldset>
+     </div>
+
+    </div>
+   </div>
+  </div>
+ </form>
+
  <!-- header -->
  <?php include './includes/header.php' ?>
 
@@ -48,7 +104,9 @@ require_once './scripts/profile-api.php';
 
      <div class="profile-details">
       <div class="profile-picture">
-       <div class="profile-img"></div>
+       <div class="profile-img">
+        <img src="public/img/profile-icon/jhs/male/fair/image1.jpeg" alt="">
+       </div>
       </div>
       <div class="user-details">
        <h2 class="student-name"><?= $full_name ?: "Loading..." ?><span class="department-label <?= $isShs ? 'shs-color' : 'jhs-color'; ?>"><?= $isShs ? "SHS - " . $student['strand'] : 'JHS'; ?></span></h2>

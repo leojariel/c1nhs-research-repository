@@ -24,7 +24,7 @@
 
   <div class="accessibility-wrapper">
    <div class="profile-wrapper">
-    <div class="profile-icon""><i class=" ti ti-user-circle"></i></div>
+    <div class="profile-icon""><img src=" public/img/profile-icon/jhs/male/fair/image1.jpeg" alt=""></div>
     <div class="dropdown-menu">
      <ul>
       <li class="nav-btn"><button type="button" class="dropdown-btn profile-btn">Go to profile</button></li>
@@ -78,7 +78,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 998;
   transition: transform 0.5s ease;
  }
 
@@ -192,9 +192,15 @@
  }
 
  .profile-wrapper .profile-icon {
-  font-size: 46px;
+  width: 46px;
   color: #1b4332;
   cursor: pointer;
+ }
+
+ .profile-icon>img {
+  border-radius: 50%;
+  border: 1px solid #1b4332;
+  width: 100%;
  }
 
  .burger-button {
@@ -262,6 +268,7 @@
   height: 100%;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   /* opacity: 0.5; */
 
   display: flex;
@@ -285,7 +292,7 @@
 
  .confirm-logout-wrapper .modal-content {
   padding: 1em;
-  border-bottom: 1px solid #a4a4a4;
+  /* border-bottom: 1px solid #a4a4a4; */
   font-size: 18px;
   text-align: justify;
  }
@@ -313,5 +320,10 @@
  .button-wrapper .cancel-btn {
   background-color: #008000;
   color: white;
+ }
+
+ .button-wrapper .logout-btn {
+  background-color: #caf8db;
+  color: black;
  }
 </style>

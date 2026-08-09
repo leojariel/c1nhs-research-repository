@@ -13,6 +13,7 @@ if (!empty($student_id)) {
  $sql = "SELECT 
           s.first_name,
           s.last_name,
+          s.gender,
           s.lrn,
           s.bio,
           sec.grade_level,
@@ -44,4 +45,30 @@ if (!empty($student_id)) {
  }
 } else {
  $isStudentFound = false;
+}
+
+if (!empty($student_id) && $isStudentFound) {
+ $deptFolder = strtolower($student['department']);
+ $genderFolder = ($student['gender'] === 'M') ? 'male' : 'female';
+
+ $icon_sql = "SELECT
+              filename,
+              skin_tone
+             FROM profile_icons
+             WHERE department = ?
+             AND gender  = ?";
+ $icon_stmt = $pdo->prepare($icon_sql);
+ $icon_stmt->execute([$student['department'], $student['gender']]);
+ $all_icons = $icon_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+ if (!empty($all_icons)) {
+  $icons_by_tone = [
+   'fair' => [],
+   'tan' => []
+  ];
+
+  foreach ($all_icons as $icon) {
+   $icons_by_tone[$icon['skin_tone']][] = $icon['filename'];
+  }
+ }
 }
