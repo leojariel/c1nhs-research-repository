@@ -271,5 +271,47 @@
 
  .confirm-logout-wrapper .modal {
   width: min(450px, 100%);
+  background-color: #b7e4c7;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 1em;
+ }
+
+ .confirm-logout-wrapper .modal-header-box {
+  padding: 1em;
+  border-bottom: 1px solid #a4a4a4;
+  background-color: #affc41;
+ }
+
+ .confirm-logout-wrapper .modal-content {
+  padding: 1em;
+  border-bottom: 1px solid #a4a4a4;
+  font-size: 18px;
+  text-align: justify;
+ }
+
+ .confirm-logout-wrapper .button-wrapper {
+  padding: 1em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+ }
+
+ .button-wrapper .modal-btn {
+  padding: 0.5em 0.8em;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 13px;
+ }
+
+ .button-wrapper .modal-btn:active {
+  transform: scale(0.950);
+ }
+
+ .button-wrapper .cancel-btn {
+  background-color: #008000;
+  color: white;
  }
 </style>

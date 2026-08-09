@@ -43,13 +43,6 @@ require_once './scripts/profile-api.php';
    <section class="profile-section">
     <div class="profile-box">
      <div class="profile-accessibility">
-      <form action="" method="POST">
-       <div class="log-out-btn-wrapper">
-        <button type="submit" class="logout-btn" name="logout-btn">
-         Log Out
-        </button>
-       </div>
-      </form>
       <button class="edit-profile-btn"><i class="ti ti-edit"></i> Edit Profile</button>
      </div>
 

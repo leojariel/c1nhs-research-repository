@@ -52,7 +52,7 @@ Object.entries(profileBtn).forEach(([key, element]) => {
      location.href = "profile.php";
      break;
     case "logOutBtn":
-     console.log("yow");
+     showLogOutModal();
      break;
     default:
      console.log("no way");
@@ -89,12 +89,23 @@ function showLogOutModal() {
   btn.classList.add(...classes);
   return btn;
  };
+
+ const logOutBtnForm = document.createElement("form");
+ logOutBtnForm.method = "POST";
  const logOutBtn = createBtn("modal-btn", "logout-btn");
- logOutBtn.name = "log_out_btn";
+ logOutBtn.type = "submit";
+ logOutBtn.name = "logout-btn";
  logOutBtn.textContent = "Confirm";
+
+ logOutBtnForm.append(logOutBtn);
+
  const cancelBtn = createBtn("modal-btn", "cancel-btn");
  cancelBtn.textContent = "Cancel";
- buttonWrapper.append(cancelBtn, logOutBtn);
+ cancelBtn.type = "button";
+ cancelBtn.addEventListener("click", () => {
+  wrapper.remove();
+ });
+ buttonWrapper.append(logOutBtnForm, cancelBtn);
 
  mainModal.appendChild(modalHeader);
  mainModal.appendChild(modalContent);
@@ -102,7 +113,11 @@ function showLogOutModal() {
 
  wrapper.appendChild(mainModal);
 
+ wrapper.addEventListener("click", (e) => {
+  if (e.target === wrapper) {
+   wrapper.remove();
+  }
+ });
+
  document.body.appendChild(wrapper);
 }
-
-showLogOutModal();
