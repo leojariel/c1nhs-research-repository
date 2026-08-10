@@ -162,7 +162,7 @@ require_once './scripts/authentication-api.php';
     </div>
     <div class="field-header">
      <h2>Retrieve Account</h2>
-     <p>Remember your C1NHS username</p>
+     <p>Remember your student LRN</p>
     </div>
 
     <form action="#forgot" method="POST" autocomplete="off">

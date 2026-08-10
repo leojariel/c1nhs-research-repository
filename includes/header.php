@@ -32,7 +32,12 @@ require_once './scripts/profile-api.php';
 
   <div class="accessibility-wrapper">
    <div class="profile-wrapper">
-    <div class="profile-icon""><img src=" <?= $student['profile_icon']; ?>" alt=""></div>
+    <div class="profile-icon""><?php if (!empty($student['profile_icon'])): ?>
+         <img src=" <?= $student['profile_icon']; ?>" alt="">
+    <?php else: ?>
+     <img src="public/img/profile-icon/<?= $deptFolder; ?>/<?= $genderFolder; ?>/fair/image1.jpeg" alt="">
+    <?php endif; ?>
+    </div>
     <div class="dropdown-menu">
      <ul>
       <li class="nav-btn"><button type="button" class="dropdown-btn profile-btn">Go to profile</button></li>
