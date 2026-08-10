@@ -7,7 +7,6 @@
  margin: 0;
  padding: 0;
  scrollbar-width: thin;
- scrollbar-color: #6b7280 #9fffcb;
 }
 
 body {
@@ -72,7 +71,7 @@ section.c1nhs-rr-bg-section {
  align-items: center;
  margin-bottom: 1em;
 }
-.profile-accessibility :is(.edit-profile-btn, .logout-btn) {
+.profile-accessibility .edit-profile-btn {
  font-family: "Montserrat", sans-serif;
  font-weight: 600;
  font-size: clamp(11px, 2vw, 14px);
@@ -82,6 +81,9 @@ section.c1nhs-rr-bg-section {
  border-radius: 25px;
  border: none;
  cursor: pointer;
+}
+.profile-accessibility .edit-profile-btn:active {
+ transform: scale(0.95);
 }
 .profile-accessibility .logout-btn {
  background-color: #f4f4f5;
@@ -434,7 +436,7 @@ section.c1nhs-rr-bg-section {
  background: rgba(0, 0, 0, 0.4);
  backdrop-filter: blur(5px);
 
- display: flex;
+ display: none;
  justify-content: center;
  align-items: center;
 }
@@ -468,6 +470,7 @@ section.c1nhs-rr-bg-section {
 }
 .profile-modal-wrapper .modal-content {
  overflow-y: auto;
+ scrollbar-color: #6b7280 #9fffcb;
  display: grid;
  gap: 1.5em;
 }
@@ -486,17 +489,25 @@ section.c1nhs-rr-bg-section {
  width: 100%;
  border-radius: 50%;
  cursor: pointer;
+ transition: all 0.5s ease;
 }
 .modal-content .icon-grid img:hover {
  opacity: 0.8;
 }
+.modal-content .icon-grid img:active {
+ transform: scale(0.95);
+}
 .icon-option:has(input[type="radio"]:checked) img {
  border: 5px solid #31572c;
 }
-.modal-header .close-btn {
+.modal-header .cancel-profile-btn {
  background: none;
  border: none;
  font-size: 24px;
+ cursor: pointer;
+}
+.modal-header .cancel-profile-btn:active {
+ transform: scale(0.95);
 }
 .icon-grid.hidden {
  display: none;
@@ -561,6 +572,9 @@ section.c1nhs-rr-bg-section {
  border-radius: 10px;
  border: 1px solid #a4a4a4;
  cursor: pointer;
+}
+.buttons-section button:active {
+ transform: scale(0.95);
 }
 .buttons-section .save-profile-btn {
  background-color: #9fffcb;

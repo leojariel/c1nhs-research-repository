@@ -7,6 +7,7 @@ if (!($_SESSION['loggedin'] ?? false)) {
  header("Location: auth.php");
  exit;
 }
+
 ?>
 
 <!DOCTYPE html>

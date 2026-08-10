@@ -1,3 +1,11 @@
+<?php
+
+require_once './config/db_config.php';
+require_once './scripts/profile-api.php';
+
+
+?>
+
 <header>
  <div class="header-inner-box">
   <div class="logo-wrapper">
@@ -24,7 +32,7 @@
 
   <div class="accessibility-wrapper">
    <div class="profile-wrapper">
-    <div class="profile-icon""><img src=" public/img/profile-icon/jhs/male/fair/image1.jpeg" alt=""></div>
+    <div class="profile-icon""><img src=" <?= $student['profile_icon']; ?>" alt=""></div>
     <div class="dropdown-menu">
      <ul>
       <li class="nav-btn"><button type="button" class="dropdown-btn profile-btn">Go to profile</button></li>
@@ -193,13 +201,15 @@
 
  .profile-wrapper .profile-icon {
   width: 46px;
-  color: #1b4332;
+  height: 46px;
+  border: 1px solid #1b4332;
+  background: linear-gradient(45deg, #1b4332, #abffce);
+  border-radius: 50%;
+  overflow: hidden;
   cursor: pointer;
  }
 
  .profile-icon>img {
-  border-radius: 50%;
-  border: 1px solid #1b4332;
   width: 100%;
  }
 

@@ -33,7 +33,7 @@ require_once './scripts/profile-api.php';
    <div class="modal">
     <div class="modal-header">
      <h2>Profile</h2>
-     <button type="button" class="close-btn"><i class="ti ti-square-rounded-x"></i></button>
+     <button type="button" class="cancel-profile-btn"><i class="ti ti-square-rounded-x"></i></button>
     </div>
     <div class="modal-content">
      <h3>Choose your icon:</h3>
@@ -52,11 +52,11 @@ require_once './scripts/profile-api.php';
        <?php if (!empty($icons_by_tone[$tone])): ?>
         <?php foreach ($icons_by_tone[$tone] as $filename): ?>
          <?php
-         $imgPath = "public/img/profile-icon/{$deptFolder}/{$genderFolder}/{$tone}/{$filename}";
+         $imgPath = "public/img/profile-icon/{$deptFolder}/{$genderFolder}/{$tone}/{$filename}" . ".jpeg";
          ?>
          <label class="icon-option">
-          <input type="radio" name="selected_icon" value="<?= $filename ?>">
-          <img src="<?= $imgPath ?>.jpeg" alt="profile option">
+          <input type="radio" name="selected_icon" value="<?= $imgPath ?>">
+          <img src="<?= $imgPath ?>" alt="profile option">
          </label>
         <?php endforeach; ?>
        <?php else: ?>
@@ -78,15 +78,15 @@ require_once './scripts/profile-api.php';
         <input type="text" class="lrn-code" id="lrn-code" value="<?= $lrn; ?>" disabled>
        </div>
        <div class="profile-bio-wrapper">
-        <label for="bio">Bio:</label>
-        <textarea name="bio" id="bio"></textarea>
+        <label for="bio-input"><span>Bio:</span> <span id="charCount">0 / 500</span></label>
+        <textarea name="bio" id="bio-input" maxlength="500"><?= $student['bio']; ?></textarea>
        </div>
       </fieldset>
      </div>
 
      <div class="buttons-section">
       <button type="button" class="cancel-profile-btn">Cancel</button>
-      <button type="submit" class="save-profile-btn">Save</button>
+      <button type="submit" class="save-profile-btn" name="save_profile_btn">Save</button>
      </div>
     </div>
 
@@ -110,13 +110,17 @@ require_once './scripts/profile-api.php';
    <section class="profile-section">
     <div class="profile-box">
      <div class="profile-accessibility">
-      <button class="edit-profile-btn"><i class="ti ti-edit"></i> Edit Profile</button>
+      <button type="button" class="edit-profile-btn"><i class="ti ti-edit"></i> Edit Profile</button>
      </div>
 
      <div class="profile-details">
       <div class="profile-picture">
        <div class="profile-img">
-        <img src="public/img/profile-icon/jhs/male/fair/image1.jpeg" alt="">
+        <?php if (!empty($student['profile_icon'])): ?>
+         <img src="<?= $student['profile_icon']; ?>" alt="">
+        <?php else: ?>
+         <img src="public/img/profile-icon/<?= $deptFolder; ?>/<?= $genderFolder; ?>/fair/image1.jpeg" alt="">
+        <?php endif; ?>
        </div>
       </div>
       <div class="user-details">

@@ -15,6 +15,7 @@ if (!empty($student_id)) {
           s.last_name,
           s.gender,
           s.lrn,
+          s.profile_icon,
           s.bio,
           sec.grade_level,
           sec.section_name,
@@ -70,5 +71,26 @@ if (!empty($student_id) && $isStudentFound) {
   foreach ($all_icons as $icon) {
    $icons_by_tone[$icon['skin_tone']][] = $icon['filename'];
   }
+ }
+}
+
+// ! save profile logic
+if (isset($_POST['save_profile_btn']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+ if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+ }
+
+ $student_id = $_SESSION['id'] ?? null;
+
+ if ($student_id) {
+
+  $selected_path = !empty($_POST['selected_icon']) ? trim($_POST['selected_icon']) : null;
+  $bio = isset($_POST['bio']) ? $_POST['bio'] : '';
+
+  $update_stmt = $pdo->prepare("UPDATE students SET profile_icon = :profile_icon, bio = :bio WHERE student_id = :student_id");
+  $update_stmt->execute([':profile_icon' => $selected_path, ':bio' => $bio, ':student_id' => $student_id]);
+
+  header('location: profile.php');
+  exit;
  }
 }

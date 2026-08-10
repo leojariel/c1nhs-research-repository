@@ -252,3 +252,25 @@ function swichtToneContainer(tone) {
   targetGrid.classList.add("active");
  }
 }
+
+// ! bio character counter
+const textarea = document.getElementById("bio-input");
+const charCount = document.getElementById("charCount");
+
+textarea.addEventListener("input", () => {
+ charCount.textContent = `${textarea.value.length} / 500`;
+});
+
+// ! close modal
+const closeProfileModalBtn = document.querySelectorAll(".cancel-profile-btn");
+closeProfileModalBtn.forEach((btn) => {
+ btn.addEventListener("click", () => {
+  document.querySelector(".profile-modal-wrapper").style.display = "none";
+ });
+});
+
+const editProfileBtn = document.querySelector(".edit-profile-btn");
+editProfileBtn.addEventListener("click", () => {
+ document.querySelector(".profile-modal-wrapper").style.display = "flex";
+ charCount.textContent = `${textarea.value.length} / 500`;
+});
